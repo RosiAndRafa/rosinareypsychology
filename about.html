@@ -1,3 +1,162 @@
 <!DOCTYPE html>
-<!-- Final corrected about.html with language flags and centered menu -->
-<!-- CONTENT OMITTED HERE FOR BREVITY, YOU HAVE THE FULL VERSION ABOVE -->
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rosina Rey Psicología - Sobre mí</title>
+  <meta name="description" content="Conoce a Rosina Rey, Psicóloga licenciada especializada en bienestar emocional.">
+  <meta name="keywords" content="Psicóloga, Terapia, Bienestar, Rosina Rey, Psicología Uruguay">
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <style>
+    body { margin: 0; font-family: Arial, sans-serif; background-color: #f8f9fa; color: #333; }
+    nav {
+      background-color: #4da6ff;
+      padding: 1rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+    }
+    .nav-center {
+      display: flex;
+      gap: 20px;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1rem;
+    }
+    nav a:hover {
+      text-decoration: underline;
+    }
+    .lang-switcher {
+      position: absolute;
+      right: 20px;
+      display: flex;
+      gap: 10px;
+    }
+    .lang-btn {
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0;
+    }
+    .lang-btn img {
+      width: 24px;
+      height: 16px;
+    }
+    .container {
+      padding: 2rem;
+      max-width: 800px;
+      margin: auto;
+      text-align: center;
+    }
+    .profile img {
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 1.5rem;
+    }
+    #bio {
+      font-size: 1.1rem;
+      line-height: 1.6;
+      text-align: justify;
+      margin-top: 1rem;
+    }
+    .button {
+      background-color: #4da6ff;
+      color: white;
+      padding: 1rem 2rem;
+      text-decoration: none;
+      font-size: 1.2rem;
+      border-radius: 8px;
+      display: inline-block;
+      margin-top: 2rem;
+      animation: pulse 2s infinite;
+    }
+    .contact-info { margin-top: 3rem; font-size: 1rem; }
+    .contact-info a { color: #4da6ff; text-decoration: none; }
+    .whatsapp-button {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #25d366;
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+      z-index: 1000;
+    }
+    .whatsapp-button img { width: 35px; height: 35px; }
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+      100% { transform: scale(1); }
+    }
+  </style>
+</head>
+
+<body>
+
+<nav>
+  <div class="nav-center">
+    <a id="home-link" href="index.html">Inicio</a>
+    <a id="about-link" href="about.html">Sobre mí</a>
+    <a id="contact-link" href="contact.html">Contacto</a>
+  </div>
+  <div class="lang-switcher">
+    <button class="lang-btn" onclick="switchLanguage('es')">
+      <img src="https://flagcdn.com/w20/es.png" alt="Español">
+    </button>
+    <button class="lang-btn" onclick="switchLanguage('en')">
+      <img src="https://flagcdn.com/w20/us.png" alt="English">
+    </button>
+  </div>
+</nav>
+
+<div class="container profile">
+  <img src="Rosina Rey.jpg" alt="Rosina Rey">
+  <p id="bio">
+    Hola, soy Rosina. ¡Bienvenido a mi página! Soy Psicóloga con cinco años de experiencia trabajando con una amplia variedad de pacientes y situaciones. Durante dos años formé parte del equipo de un centro psiquiátrico, lo que me permitió adquirir un sólido manejo en el abordaje de diversas problemáticas. Tengo experiencia en el tratamiento de depresión, duelos por separación, baja autoestima, trastorno bipolar, trastornos de ansiedad, trastorno límite de la personalidad, esquizofrenia, adicciones, entre otros. A lo largo de mi trayectoria también me desempeñé como profesora en la Universidad de la República (UDELAR) y trabajé en el área de Recursos Humanos. Actualmente me dedico a mi mayor pasión: la atención clínica de pacientes. Trabajo de manera humana y comprometida, ya que para mí cada paciente representa un desafío único que asumo con total responsabilidad, estudiando su caso en profundidad y diseñando un plan de tratamiento personalizado. Mi enfoque es cognitivo-conductual, orientado a brindar soluciones prácticas y efectivas. Espero poder acompañarte en este proceso y cumplir con la expectativa que tienes de un buen tratamiento.
+  </p>
+
+  <a id="book-btn" href="https://wa.me/59898203870" class="button" target="_blank">Agendar una Cita</a>
+
+  <div class="contact-info">
+    <p>Rosina Rey</p>
+    <p><a href="mailto:Rosina.rey.asis@gmail.com">Rosina.rey.asis@gmail.com</a></p>
+    <p><a href="https://wa.me/59898203870" target="_blank">+598 9820 3870</a></p>
+  </div>
+</div>
+
+<a href="https://wa.me/59898203870" class="whatsapp-button" target="_blank">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/WhatsApp_icon.png" alt="WhatsApp">
+</a>
+
+<script>
+function switchLanguage(lang) {
+  localStorage.setItem('lang', lang);
+  document.getElementById('home-link').innerText = lang === 'es' ? 'Inicio' : 'Home';
+  document.getElementById('about-link').innerText = lang === 'es' ? 'Sobre mí' : 'About Me';
+  document.getElementById('contact-link').innerText = lang === 'es' ? 'Contacto' : 'Contact';
+  if (lang === 'es') {
+    document.getElementById('bio').innerText = "Hola, soy Rosina. ¡Bienvenido a mi página! Soy Psicóloga con cinco años de experiencia trabajando con una amplia variedad de pacientes y situaciones. Durante dos años formé parte del equipo de un centro psiquiátrico, lo que me permitió adquirir un sólido manejo en el abordaje de diversas problemáticas. Tengo experiencia en el tratamiento de depresión, duelos por separación, baja autoestima, trastorno bipolar, trastornos de ansiedad, trastorno límite de la personalidad, esquizofrenia, adicciones, entre otros. A lo largo de mi trayectoria también me desempeñé como profesora en la Universidad de la República (UDELAR) y trabajé en el área de Recursos Humanos. Actualmente me dedico a mi mayor pasión: la atención clínica de pacientes. Trabajo de manera humana y comprometida, ya que para mí cada paciente representa un desafío único que asumo con total responsabilidad, estudiando su caso en profundidad y diseñando un plan de tratamiento personalizado. Mi enfoque es cognitivo-conductual, orientado a brindar soluciones prácticas y efectivas. Espero poder acompañarte en este proceso y cumplir con la expectativa que tienes de un buen tratamiento.";
+    document.getElementById('book-btn').innerText = 'Agendar una Cita';
+  } else {
+    document.getElementById('bio').innerText = "Hello, I'm Rosina. Welcome to my page! I am a psychologist with five years of experience working with a wide variety of patients and situations. For two years, I was part of a psychiatric center team, which allowed me to gain solid skills in addressing various issues. I have experience treating depression, separation grief, low self-esteem, bipolar disorder, anxiety disorders, borderline personality disorder, schizophrenia, addictions, among others. Throughout my career, I have also served as a professor at the University of the Republic (UDELAR) and worked in Human Resources. Currently, I dedicate myself to my greatest passion: the clinical care of patients. I work in a human and committed way, because for me each patient represents a unique challenge that I approach with total responsibility, studying each case in depth and designing a personalized treatment plan. My approach is cognitive-behavioral, oriented to provide practical and effective solutions. I hope to accompany you on this journey and meet your expectations for a good treatment.";
+    document.getElementById('book-btn').innerText = 'Book an Appointment';
+  }
+}
+window.onload = function() {
+  const savedLang = localStorage.getItem('lang') || 'es';
+  switchLanguage(savedLang);
+};
+</script>
+
+</body>
+</html>
