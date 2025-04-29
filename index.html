@@ -6,6 +6,7 @@
   <title>Rosina Rey Psicología - Inicio</title>
   <meta name="description" content="Psicóloga Rosina Rey. Terapia individual, manejo de ansiedad, apoyo emocional en Uruguay. Agenda tu cita.">
   <meta name="keywords" content="Psicóloga, Terapia, Salud Mental, Rosina Rey, Psicología Uruguay">
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
   <style>
     body { margin: 0; font-family: Arial, sans-serif; background-color: #f8f9fa; color: #333; }
     nav { background-color: #4da6ff; padding: 1rem; display: flex; justify-content: center; align-items: center; gap: 20px; }
@@ -56,35 +57,12 @@
     ul { list-style: none; padding: 0; }
     ul li { margin: 10px 0; }
   </style>
-  <script>
-    function switchLanguage(lang) {
-      if (lang === 'es') {
-        document.getElementById('welcome').innerText = 'Bienvenido a Psicología Rosina Rey';
-        document.getElementById('intro').innerText = 'Te acompaño en tu camino hacia el bienestar emocional. Ofrezco un espacio seguro y acogedor para tu crecimiento personal.';
-        document.getElementById('services-title').innerText = 'Servicios';
-        document.getElementById('service1').innerText = '✓ Terapia individual para adultos';
-        document.getElementById('service2').innerText = '✓ Apoyo en ansiedad y depresión';
-        document.getElementById('service3').innerText = '✓ Terapia de autoestima y manejo emocional';
-        document.getElementById('service4').innerText = '✓ Acompañamiento en momentos de cambio vital';
-        document.getElementById('book-btn').innerText = 'Agendar una Cita';
-      } else {
-        document.getElementById('welcome').innerText = 'Welcome to Rosina Rey Psychology';
-        document.getElementById('intro').innerText = 'I accompany you on your path to emotional well-being. I offer a safe and welcoming space for your personal growth.';
-        document.getElementById('services-title').innerText = 'Services';
-        document.getElementById('service1').innerText = '✓ Individual therapy for adults';
-        document.getElementById('service2').innerText = '✓ Support with anxiety and depression';
-        document.getElementById('service3').innerText = '✓ Self-esteem and emotional management therapy';
-        document.getElementById('service4').innerText = '✓ Support during life transitions';
-        document.getElementById('book-btn').innerText = 'Book an Appointment';
-      }
-    }
-  </script>
 </head>
 <body>
 
 <nav>
-  <a href="index.html">Inicio</a>
-  <a href="about.html">Sobre mí</a>
+  <a id="home-link" href="index.html">Inicio</a>
+  <a id="about-link" href="about.html">Sobre mí</a>
   <button class="lang-btn" onclick="switchLanguage('es')">ES</button>
   <button class="lang-btn" onclick="switchLanguage('en')">EN</button>
 </nav>
@@ -115,5 +93,34 @@
   <img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/WhatsApp_icon.png" alt="WhatsApp">
 </a>
 
+<script>
+function switchLanguage(lang) {
+  if (lang === 'es') {
+    document.getElementById('home-link').innerText = 'Inicio';
+    document.getElementById('about-link').innerText = 'Sobre mí';
+    document.getElementById('welcome').innerText = 'Bienvenido a Psicología Rosina Rey';
+    document.getElementById('intro').innerText = 'Te acompaño en tu camino hacia el bienestar emocional. Ofrezco un espacio seguro y acogedor para tu crecimiento personal.';
+    document.getElementById('services-title').innerText = 'Servicios';
+    document.getElementById('service1').innerText = '✓ Terapia individual para adultos';
+    document.getElementById('service2').innerText = '✓ Apoyo en ansiedad y depresión';
+    document.getElementById('service3').innerText = '✓ Terapia de autoestima y manejo emocional';
+    document.getElementById('service4').innerText = '✓ Acompañamiento en momentos de cambio vital';
+    document.getElementById('book-btn').innerText = 'Agendar una Cita';
+  } else {
+    document.getElementById('home-link').innerText = 'Home';
+    document.getElementById('about-link').innerText = 'About Me';
+    document.getElementById('welcome').innerText = 'Welcome to Rosina Rey Psychology';
+    document.getElementById('intro').innerText = 'I accompany you on your path to emotional well-being. I offer a safe and welcoming space for your personal growth.';
+    document.getElementById('services-title').innerText = 'Services';
+    document.getElementById('service1').innerText = '✓ Individual therapy for adults';
+    document.getElementById('service2').innerText = '✓ Support with anxiety and depression';
+    document.getElementById('service3').innerText = '✓ Self-esteem and emotional management therapy';
+    document.getElementById('service4').innerText = '✓ Support during life transitions';
+    document.getElementById('book-btn').innerText = 'Book an Appointment';
+  }
+}
+</script>
+
 </body>
 </html>
+
