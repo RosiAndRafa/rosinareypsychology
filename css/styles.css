@@ -1,3 +1,4 @@
+/* General styles */
 body {
   margin: 0;
   font-family: Arial, sans-serif;
@@ -35,6 +36,7 @@ nav a:hover {
   right: 20px;
   display: flex;
   gap: 10px;
+  top: 20px;
 }
 
 .lang-btn {
@@ -49,8 +51,9 @@ nav a:hover {
   height: 16px;
 }
 
+/* Hero section */
 .hero {
-  background-image: url('../images/background.jpg'); /* Replace or delete if not using */
+  background-image: url('../images/background.jpg'); /* You can replace with your background */
   background-size: cover;
   background-position: center;
   color: white;
@@ -58,6 +61,7 @@ nav a:hover {
   padding: 6rem 2rem;
 }
 
+/* Container for About, Contact */
 .container {
   padding: 2rem;
   max-width: 800px;
@@ -65,6 +69,7 @@ nav a:hover {
   text-align: center;
 }
 
+/* Main buttons (Agendar una cita) */
 .button {
   background-color: #4da6ff;
   color: white;
@@ -77,6 +82,11 @@ nav a:hover {
   animation: pulse 2s infinite;
 }
 
+.button:hover {
+  opacity: 0.9;
+}
+
+/* Contact info section */
 .contact-info {
   margin-top: 3rem;
   font-size: 1rem;
@@ -87,6 +97,7 @@ nav a:hover {
   text-decoration: none;
 }
 
+/* WhatsApp floating button */
 .whatsapp-button {
   position: fixed;
   bottom: 20px;
@@ -107,15 +118,7 @@ nav a:hover {
   height: 35px;
 }
 
-ul {
-  list-style: none;
-  padding: 0;
-}
-
-ul li {
-  margin: 10px 0;
-}
-
+/* Profile photo (about page) */
 .profile img,
 .profile-img {
   width: 180px;
@@ -125,9 +128,22 @@ ul li {
   margin-bottom: 1.5rem;
 }
 
-textarea {
-  resize: vertical;
-  height: 150px;
+/* Lists */
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+ul li {
+  margin: 10px 0;
+}
+
+/* Form styles */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: center;
 }
 
 input, textarea {
@@ -139,19 +155,19 @@ input, textarea {
   font-size: 1rem;
 }
 
-form {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  align-items: center;
+textarea {
+  resize: vertical;
+  height: 150px;
 }
 
+/* Pulse animation for buttons */
 @keyframes pulse {
   0% { transform: scale(1); }
   50% { transform: scale(1.05); }
   100% { transform: scale(1); }
 }
 
+/* Fade-in animation */
 .fade-in {
   opacity: 0;
   transform: translateY(20px);
@@ -165,7 +181,12 @@ form {
   }
 }
 
-/* Responsive */
+/* Hidden class */
+.hidden {
+  display: none;
+}
+
+/* FULL Mobile Responsive Styles */
 @media (max-width: 600px) {
   .hero {
     padding: 3rem 1rem;
@@ -176,5 +197,18 @@ form {
   }
   input, textarea {
     width: 90%;
+  }
+  .lang-switcher {
+    top: 10px;
+    right: 10px;
+    transform: scale(0.9);
+  }
+  .whatsapp-button {
+    width: 50px;
+    height: 50px;
+  }
+  .whatsapp-button img {
+    width: 28px;
+    height: 28px;
   }
 }
