@@ -8,44 +8,106 @@
   <meta name="keywords" content="Psicóloga, Terapia, Salud Mental, Rosina Rey, Psicología Uruguay">
   <style>
     body { margin: 0; font-family: Arial, sans-serif; background-color: #f8f9fa; color: #333; }
-    nav { background-color: #4da6ff; padding: 1rem; display: flex; justify-content: center; gap: 20px; }
-    nav a { color: white; text-decoration: none; font-weight: bold; }
-    nav a:hover { text-decoration: underline; }
+    nav { background-color: #4da6ff; padding: 1rem; display: flex; justify-content: center; align-items: center; gap: 20px; }
+    nav a, .lang-btn { color: white; text-decoration: none; font-weight: bold; background: none; border: none; cursor: pointer; font-size: 1rem; }
+    nav a:hover, .lang-btn:hover { text-decoration: underline; }
+    .hero {
+      background-image: url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1400&q=80');
+      background-size: cover;
+      background-position: center;
+      color: white;
+      text-align: center;
+      padding: 6rem 2rem;
+    }
     .container { padding: 2rem; text-align: center; }
-    .button { background-color: #4da6ff; color: white; padding: 1rem 2rem; text-decoration: none; font-size: 1.2rem; border-radius: 8px; display: inline-block; margin-top: 2rem; animation: pulse 2s infinite; }
+    .button {
+      background-color: #4da6ff;
+      color: white;
+      padding: 1rem 2rem;
+      text-decoration: none;
+      font-size: 1.2rem;
+      border-radius: 8px;
+      display: inline-block;
+      margin-top: 2rem;
+      animation: pulse 2s infinite;
+    }
     .contact-info { margin-top: 3rem; font-size: 1rem; }
     .contact-info a { color: #4da6ff; text-decoration: none; }
-    .whatsapp-button { position: fixed; bottom: 20px; right: 20px; background-color: #25d366; border-radius: 50%; width: 60px; height: 60px; display: flex; align-items: center; justify-content: center; box-shadow: 0 2px 10px rgba(0,0,0,0.2); z-index: 1000; }
+    .whatsapp-button {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #25d366;
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+      z-index: 1000;
+    }
     .whatsapp-button img { width: 35px; height: 35px; }
-    @keyframes pulse { 0% { transform: scale(1); } 50% { transform: scale(1.05); } 100% { transform: scale(1); } }
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+      100% { transform: scale(1); }
+    }
     ul { list-style: none; padding: 0; }
     ul li { margin: 10px 0; }
   </style>
+  <script>
+    function switchLanguage(lang) {
+      if (lang === 'es') {
+        document.getElementById('welcome').innerText = 'Bienvenido a Psicología Rosina Rey';
+        document.getElementById('intro').innerText = 'Te acompaño en tu camino hacia el bienestar emocional. Ofrezco un espacio seguro y acogedor para tu crecimiento personal.';
+        document.getElementById('services-title').innerText = 'Servicios';
+        document.getElementById('service1').innerText = '✓ Terapia individual para adultos';
+        document.getElementById('service2').innerText = '✓ Apoyo en ansiedad y depresión';
+        document.getElementById('service3').innerText = '✓ Terapia de autoestima y manejo emocional';
+        document.getElementById('service4').innerText = '✓ Acompañamiento en momentos de cambio vital';
+        document.getElementById('book-btn').innerText = 'Agendar una Cita';
+      } else {
+        document.getElementById('welcome').innerText = 'Welcome to Rosina Rey Psychology';
+        document.getElementById('intro').innerText = 'I accompany you on your path to emotional well-being. I offer a safe and welcoming space for your personal growth.';
+        document.getElementById('services-title').innerText = 'Services';
+        document.getElementById('service1').innerText = '✓ Individual therapy for adults';
+        document.getElementById('service2').innerText = '✓ Support with anxiety and depression';
+        document.getElementById('service3').innerText = '✓ Self-esteem and emotional management therapy';
+        document.getElementById('service4').innerText = '✓ Support during life transitions';
+        document.getElementById('book-btn').innerText = 'Book an Appointment';
+      }
+    }
+  </script>
 </head>
 <body>
 
 <nav>
   <a href="index.html">Inicio</a>
   <a href="about.html">Sobre mí</a>
+  <button class="lang-btn" onclick="switchLanguage('es')">ES</button>
+  <button class="lang-btn" onclick="switchLanguage('en')">EN</button>
 </nav>
 
-<div class="container">
-  <h1>Bienvenido a Psicología Rosina Rey</h1>
-  <p>Te acompaño en tu camino hacia el bienestar emocional. Ofrezco un espacio seguro y acogedor para tu crecimiento personal.</p>
-  <a href="https://wa.me/59898203870" class="button" target="_blank">Agendar una Cita</a>
+<div class="hero">
+  <h1 id="welcome">Bienvenido a Psicología Rosina Rey</h1>
+  <p id="intro">Te acompaño en tu camino hacia el bienestar emocional. Ofrezco un espacio seguro y acogedor para tu crecimiento personal.</p>
+  <a id="book-btn" href="https://wa.me/59898203870" class="button" target="_blank">Agendar una Cita</a>
+</div>
 
-  <h2>Servicios</h2>
+<div class="container">
+  <h2 id="services-title">Servicios</h2>
   <ul>
-    <li>✓ Terapia individual para adultos</li>
-    <li>✓ Apoyo en ansiedad y depresión</li>
-    <li>✓ Terapia de autoestima y manejo emocional</li>
-    <li>✓ Acompañamiento en momentos de cambio vital</li>
+    <li id="service1">✓ Terapia individual para adultos</li>
+    <li id="service2">✓ Apoyo en ansiedad y depresión</li>
+    <li id="service3">✓ Terapia de autoestima y manejo emocional</li>
+    <li id="service4">✓ Acompañamiento en momentos de cambio vital</li>
   </ul>
 
   <div class="contact-info">
-    <p><strong>Nombre:</strong> Rosina Rey</p>
-    <p><strong>Email:</strong> <a href="mailto:Rosina.rey.asis@gmail.com">Rosina.rey.asis@gmail.com</a></p>
-    <p><strong>WhatsApp:</strong> <a href="https://wa.me/59898203870" target="_blank">+598 9820 3870</a></p>
+    <p>Rosina Rey</p>
+    <p><a href="mailto:Rosina.rey.asis@gmail.com">Rosina.rey.asis@gmail.com</a></p>
+    <p><a href="https://wa.me/59898203870" target="_blank">+598 9820 3870</a></p>
   </div>
 </div>
 
