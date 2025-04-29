@@ -1,53 +1,61 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Rosina Rey Psicología - Sobre mí</title>
-  <meta name="description" content="Sobre la psicóloga Rosina Rey. Conoce más sobre su trayectoria y enfoque de terapia.">
-  <meta name="keywords" content="Psicóloga, Terapia, Rosina Rey, Salud Mental, Psicología">
+  <meta name="description" content="Conoce a Rosina Rey, Psicóloga licenciada especializada en bienestar emocional.">
+  <meta name="keywords" content="Psicóloga, Terapia, Bienestar, Rosina Rey, Psicología Uruguay">
   <style>
     body { margin: 0; font-family: Arial, sans-serif; background-color: #f8f9fa; color: #333; }
-    nav { background-color: #4da6ff; padding: 1rem; display: flex; justify-content: center; gap: 20px; }
-    nav a { color: white; text-decoration: none; font-weight: bold; }
-    nav a:hover { text-decoration: underline; }
-    .container { padding: 2rem; display: flex; flex-direction: column; align-items: center; }
-    .profile { display: flex; flex-direction: column; align-items: center; max-width: 800px; }
-    .profile img { width: 200px; height: 200px; border-radius: 50%; margin-bottom: 1rem; object-fit: cover; }
-    .button { background-color: #4da6ff; color: white; padding: 1rem 2rem; text-decoration: none; font-size: 1.2rem; border-radius: 8px; display: inline-block; margin-top: 2rem; animation: pulse 2s infinite; }
-    .contact-info { margin-top: 3rem; text-align: center; }
+    nav { background-color: #4da6ff; padding: 1rem; display: flex; justify-content: center; align-items: center; gap: 20px; }
+    nav a, .lang-btn { color: white; text-decoration: none; font-weight: bold; background: none; border: none; cursor: pointer; font-size: 1rem; }
+    nav a:hover, .lang-btn:hover { text-decoration: underline; }
+    .hero {
+      background-image: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1400&q=80');
+      background-size: cover;
+      background-position: center;
+      color: white;
+      text-align: center;
+      padding: 6rem 2rem;
+    }
+    .container { padding: 2rem; text-align: center; }
+    .profile img { width: 200px; height: 200px; border-radius: 50%; object-fit: cover; margin-bottom: 1rem; }
+    .button {
+      background-color: #4da6ff;
+      color: white;
+      padding: 1rem 2rem;
+      text-decoration: none;
+      font-size: 1.2rem;
+      border-radius: 8px;
+      display: inline-block;
+      margin-top: 2rem;
+      animation: pulse 2s infinite;
+    }
+    .contact-info { margin-top: 3rem; font-size: 1rem; }
     .contact-info a { color: #4da6ff; text-decoration: none; }
-    .whatsapp-button { position: fixed; bottom: 20px; right: 20px; background-color: #25d366; border-radius: 50%; width: 60px; height: 60px; display: flex; align-items: center; justify-content: center; box-shadow: 0 2px 10px rgba(0,0,0,0.2); z-index: 1000; }
+    .whatsapp-button {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #25d366;
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+      z-index: 1000;
+    }
     .whatsapp-button img { width: 35px; height: 35px; }
-    @keyframes pulse { 0% { transform: scale(1); } 50% { transform: scale(1.05); } 100% { transform: scale(1); } }
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+      100% { transform: scale(1); }
+    }
   </style>
-</head>
-<body>
-
-<nav>
-  <a href="index.html">Inicio</a>
-  <a href="about.html">Sobre mí</a>
-</nav>
-
-<div class="container">
-  <div class="profile">
-    <img src="Rosina Rey.jpg" alt="Rosina Rey">
-    <p>Hola, soy Rosina Rey, psicóloga licenciada con amplia experiencia en acompañamiento emocional. Mi enfoque es cálido, personalizado y basado en la evidencia científica. Mi misión es ayudarte a construir una vida con mayor bienestar y equilibrio emocional.</p>
-  </div>
-
-  <a href="https://wa.me/59898203870" class="button" target="_blank">Agendar una Cita</a>
-
-  <div class="contact-info">
-    <p><strong>Nombre:</strong> Rosina Rey</p>
-    <p><strong>Email:</strong> <a href="mailto:Rosina.rey.asis@gmail.com">Rosina.rey.asis@gmail.com</a></p>
-    <p><strong>WhatsApp:</strong> <a href="https://wa.me/59898203870" target="_blank">+598 9820 3870</a></p>
-  </div>
-</div>
-
-<a href="https://wa.me/59898203870" class="whatsapp-button" target="_blank">
-  <img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/WhatsApp_icon.png" alt="WhatsApp">
-</a>
-
-</body>
-</html>
+  <script>
+    function switchLanguage(lang) {
+      if (lang === 'es') {
+        document.getElementById('bio').innerText = "Hola, soy Rosina. ¡Bienvenido a mi página! Soy Psicóloga con cinco años de experiencia trabajando con una amplia variedad de pacientes y situaciones. Durante dos años formé parte del equipo de un centro psiquiátrico, lo que me permitió adquirir un sólido manejo en el abordaje de diversas problemáticas. Tengo experiencia en el tratamiento de depresión, duelos por separación, baja autoestima, trastorno bipolar, trastornos de ansiedad, trastorno límite de la personalidad, esquizofrenia, adicciones, entre otros. A lo largo de mi trayectoria también me desempe
