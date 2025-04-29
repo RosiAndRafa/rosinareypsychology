@@ -13,13 +13,11 @@ nav {
   justify-content: center;
   align-items: center;
   position: relative;
-  flex-wrap: wrap;
 }
 
 .nav-center {
   display: flex;
   gap: 20px;
-  flex-wrap: wrap;
 }
 
 nav a {
@@ -34,9 +32,11 @@ nav a:hover {
 }
 
 .lang-switcher {
+  position: absolute;
+  right: 20px;
+  top: 20px;
   display: flex;
   gap: 10px;
-  margin-left: 20px;
 }
 
 .lang-btn {
@@ -188,19 +188,6 @@ textarea {
 
 /* Mobile responsive fixes */
 @media (max-width: 600px) {
-  nav {
-    flex-direction: column;
-    align-items: center;
-  }
-  .nav-center {
-    flex-direction: column;
-    gap: 10px;
-  }
-  .lang-switcher {
-    margin-left: 0;
-    margin-top: 10px;
-    transform: scale(0.9);
-  }
   .hero {
     padding: 3rem 1rem;
   }
@@ -210,6 +197,11 @@ textarea {
   }
   input, textarea {
     width: 90%;
+  }
+  .lang-switcher {
+    right: 30px; /* moved more to the right */
+    top: 10px;
+    transform: scale(0.9);
   }
   .whatsapp-button {
     width: 50px;
