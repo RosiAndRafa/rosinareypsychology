@@ -34,181 +34,118 @@ nav a:hover {
 .lang-switcher {
   position: absolute;
   right: 20px;
-  top: 20px;
+  top: 10px;
   display: flex;
   gap: 10px;
 }
 
-.lang-btn {
-  background: none;
-  border: none;
-  cursor: pointer;
-  padding: 0;
-}
-
-.lang-btn img {
-  width: 24px;
-  height: 16px;
-}
-
-/* Hero section */
-.hero {
+header {
+  text-align: center;
   background-image: url('../images/background.jpg');
   background-size: cover;
   background-position: center;
   color: white;
-  text-align: center;
-  padding: 6rem 2rem;
+  padding: 100px 20px;
 }
 
-/* Container for About, Contact */
-.container {
-  padding: 2rem;
-  max-width: 800px;
-  margin: auto;
-  text-align: center;
+header h1 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
 }
 
-/* Main button */
-.button {
+header p {
+  font-size: 1.2rem;
+  max-width: 600px;
+  margin: 0 auto 30px;
+}
+
+button {
   background-color: #4da6ff;
   color: white;
-  padding: 1rem 2rem;
-  text-decoration: none;
-  font-size: 1.2rem;
-  border-radius: 8px;
-  display: inline-block;
-  margin-top: 2rem;
-  animation: pulse 2s infinite;
-}
-
-.button:hover {
-  opacity: 0.9;
-}
-
-/* Contact info */
-.contact-info {
-  margin-top: 3rem;
+  padding: 10px 20px;
+  border: none;
   font-size: 1rem;
+  border-radius: 5px;
+  cursor: pointer;
 }
 
-.contact-info a {
-  color: #4da6ff;
-  text-decoration: none;
+button:hover {
+  background-color: #3399ff;
+}
+
+section {
+  padding: 50px 20px;
+  max-width: 800px;
+  margin: auto;
+}
+
+section h2 {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.services-list {
+  list-style: none;
+  padding: 0;
+  font-size: 1.1rem;
+}
+
+.services-list li::before {
+  content: "✓";
+  color: green;
+  margin-right: 10px;
 }
 
 /* WhatsApp floating button */
-.whatsapp-button {
+.whatsapp-float {
   position: fixed;
-  bottom: 20px;
-  right: 20px;
-  background-color: #25d366;
-  border-radius: 50%;
   width: 60px;
   height: 60px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-  z-index: 1000;
+  bottom: 40px;
+  right: 20px;
+  background-color: #25d366;
+  color: #FFF;
+  border-radius: 50px;
+  text-align: center;
+  font-size: 30px;
+  box-shadow: 2px 2px 3px #999;
+  z-index: 100;
 }
 
-.whatsapp-button img {
-  width: 35px;
-  height: 35px;
+.whatsapp-icon {
+  margin-top: 15px;
 }
 
-/* Profile photo */
-.profile img,
-.profile-img {
-  width: 180px;
-  height: 180px;
-  border-radius: 50%;
-  object-fit: cover;
-  margin-bottom: 1.5rem;
+/* Footer */
+footer {
+  background-color: #4da6ff;
+  color: white;
+  text-align: center;
+  padding: 20px;
+  margin-top: 40px;
 }
 
-/* Lists */
-ul {
-  list-style: none;
-  padding: 0;
-}
-
-ul li {
-  margin: 10px 0;
-}
-
-/* Form */
-form {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  align-items: center;
-}
-
-input, textarea {
-  width: 100%;
-  max-width: 500px;
-  padding: 0.8rem;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  font-size: 1rem;
-}
-
-textarea {
-  resize: vertical;
-  height: 150px;
-}
-
-/* Pulse animation */
-@keyframes pulse {
-  0% { transform: scale(1); }
-  50% { transform: scale(1.05); }
-  100% { transform: scale(1); }
-}
-
-/* Fade-in animation */
-.fade-in {
-  opacity: 0;
-  transform: translateY(20px);
-  animation: fadeIn 1.5s forwards;
-}
-
-@keyframes fadeIn {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* Hidden class */
-.hidden {
-  display: none;
-}
-
-/* Mobile responsive fixes */
+/* Responsive design fix for language flags on mobile view */
 @media (max-width: 600px) {
-  .hero {
-    padding: 3rem 1rem;
-  }
-  .button {
-    font-size: 1rem;
-    padding: 0.8rem 1.5rem;
-  }
-  input, textarea {
-    width: 90%;
-  }
   .lang-switcher {
-    right: 30px; /* moved more to the right */
+    right: 10px;
     top: 10px;
-    transform: scale(0.9);
+    display: flex;
+    gap: 8px;
   }
-  .whatsapp-button {
-    width: 50px;
-    height: 50px;
+
+  nav {
+    flex-direction: column;
+    align-items: flex-start;
   }
-  .whatsapp-button img {
-    width: 28px;
-    height: 28px;
+
+  .nav-center {
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+  }
+
+  nav a {
+    margin: 0 10px;
   }
 }
