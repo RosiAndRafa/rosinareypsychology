@@ -199,7 +199,7 @@ textarea {
     width: 90%;
   }
   .lang-switcher {
-    right: 30px;
+    right: 30px; /* moved more to the right */
     top: 10px;
     transform: scale(0.9);
   }
@@ -211,43 +211,4 @@ textarea {
     width: 28px;
     height: 28px;
   }
-}
-
-/* Footer Styles */
-.site-footer {
-  background-color: #004080;
-  color: #fff;
-  padding: 20px 0;
-  text-align: center;
-  font-size: 14px;
-}
-
-.footer-content {
-  max-width: 960px;
-  margin: auto;
-  padding: 0 20px;
-}
-
-.footer-links {
-  margin-bottom: 10px;
-}
-
-.footer-links a {
-  margin: 0 10px;
-  color: #fff;
-  text-decoration: none;
-}
-
-.footer-links a:hover {
-  text-decoration: underline;
-}
-
-.footer-social a {
-  display: inline-block;
-  margin: 0 10px;
-}
-
-.footer-social img {
-  height: 24px;
-  width: 24px;
 }
