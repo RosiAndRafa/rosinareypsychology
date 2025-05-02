@@ -1,5 +1,16 @@
 const translations = {
   en: {
+    aboutParagraph1: "Hi, I'm Rosina. Welcome to my page! I'm a psychologist with five years of experience working with a wide variety of patients and situations.",
+    aboutParagraph2: "For two years I was part of a psychiatric center team, which gave me solid skills in handling diverse mental health issues.",
+    aboutParagraph3: "I have experience treating depression, separation grief, low self-esteem, bipolar disorder, anxiety disorders, borderline personality disorder, schizophrenia, addictions, among others.",
+    aboutParagraph4: "I've also worked as a professor at the University of the Republic (UDELAR) and in Human Resources.",
+    aboutParagraph5: "Currently, I devote myself to my true passion: personalized clinical care using a cognitive-behavioral approach.",
+    namePlaceholder: "Your Name",
+    emailPlaceholder: "Your Email",
+    subjectPlaceholder: "Subject",
+    messagePlaceholder: "Write your message here...",
+    sendButton: "Send Message"
+,
     home: "Home",
     about: "About Me",
     contact: "Contact",
@@ -18,6 +29,17 @@ const translations = {
     service4: "✓ Support during life transitions"
   },
   es: {
+    aboutParagraph1: "Hola, soy Rosina. ¡Bienvenido a mi página! Soy Psicóloga con cinco años de experiencia trabajando con una amplia variedad de pacientes y situaciones.",
+    aboutParagraph2: "Durante dos años formé parte del equipo de un centro psiquiátrico, lo que me permitió adquirir un sólido manejo en el abordaje de diversas problemáticas.",
+    aboutParagraph3: "Tengo experiencia en el tratamiento de depresión, duelos por separación, baja autoestima, trastorno bipolar, trastornos de ansiedad, trastorno límite de la personalidad, esquizofrenia, adicciones, entre otros.",
+    aboutParagraph4: "También he trabajado como profesora en la Universidad de la República (UDELAR) y en Recursos Humanos.",
+    aboutParagraph5: "Actualmente me dedico a mi gran pasión: la atención clínica personalizada de pacientes con un enfoque cognitivo-conductual.",
+    namePlaceholder: "Nombre",
+    emailPlaceholder: "Correo electrónico",
+    subjectPlaceholder: "Asunto",
+    messagePlaceholder: "Escribe tu mensaje aquí...",
+    sendButton: "Enviar Mensaje"
+,
     home: "Inicio",
     about: "Sobre mí",
     contact: "Contacto",
