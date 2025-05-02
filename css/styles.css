@@ -279,18 +279,3 @@ textarea {
   border-radius: 10px;
   box-shadow: 0 2px 8px rgba(0,0,0,0.05);
 }
-
-
-
-.about-text {
-  font-size: 1.1rem;
-  line-height: 1.7;
-  padding: 1.5rem;
-  background-color: #ffffff;
-  border-radius: 10px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-  color: #222;
-}
-.about-text p {
-  margin-bottom: 1.2rem;
-}
