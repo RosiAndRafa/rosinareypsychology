@@ -1,55 +1,69 @@
 <!DOCTYPE html>
-
 <html lang="es">
 <head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Rosina Rey Psicología - Contacto</title>
-<meta content="Contacta a Rosina Rey, Psicóloga especializada en bienestar emocional en Uruguay. Agenda tu consulta." name="description"/>
-<meta content="Psicóloga, Contacto, Terapia, Rosina Rey, Psicología Uruguay" name="keywords"/>
-<meta content="Rosina Rey Psicología - Contacto" property="og:title"/>
-<meta content="Contacta a Rosina Rey, Psicóloga especializada en bienestar emocional." property="og:description"/>
-<meta content="images/rosina-rey.jpg" property="og:image"/>
-<meta content="https://rosinareypsychology.com/contact.html" property="og:url"/>
-<meta content="website" property="og:type"/>
-<meta content="summary_large_image" name="twitter:card"/>
-<meta content="Rosina Rey Psicología - Contacto" name="twitter:title"/>
-<meta content="Agenda tu consulta con Rosina Rey, Psicóloga en Uruguay." name="twitter:description"/>
-<meta content="images/rosina-rey.jpg" name="twitter:image"/>
-<link href="favicon.ico" rel="icon" type="image/x-icon"/>
-<link href="css/styles.css?v=3" rel="stylesheet"/>
-<script defer="" src="js/lang.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rosina Rey Psicología - Contacto</title>
+  <meta name="description" content="Contacta a Rosina Rey, Psicóloga especializada en bienestar emocional en Uruguay. Agenda tu consulta.">
+  <meta name="keywords" content="Psicóloga, Contacto, Terapia, Rosina Rey, Psicología Uruguay">
+  <meta property="og:title" content="Rosina Rey Psicología - Contacto">
+  <meta property="og:description" content="Contacta a Rosina Rey, Psicóloga especializada en bienestar emocional.">
+  <meta property="og:image" content="images/rosina-rey.jpg">
+  <meta property="og:url" content="https://rosinareypsychology.com/contact.html">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Rosina Rey Psicología - Contacto">
+  <meta name="twitter:description" content="Agenda tu consulta con Rosina Rey, Psicóloga en Uruguay.">
+  <meta name="twitter:image" content="images/rosina-rey.jpg">
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="css/styles.css?v=3">
+  <script src="js/lang.js" defer></script>
 </head>
+
 <body>
+
 <nav>
-<div class="nav-center">
-<a data-i18n="home" href="index.html">Inicio</a>
-<a data-i18n="about" href="about.html">Sobre mí</a>
-<a data-i18n="contact" href="contact.html">Contacto</a>
-</div>
-<div class="lang-switcher"><a class="lang-btn" href="contact-es.html"><img alt="Español" src="images/es.png"/></a><a class="lang-btn" href="contact.html"><img alt="English" src="images/us.png"/></a></div>
+  <div class="nav-center">
+    <a href="index.html" data-i18n="home">Inicio</a>
+    <a href="about.html" data-i18n="about">Sobre mí</a>
+    <a href="contact.html" data-i18n="contact">Contacto</a>
+  </div>
+  <div class="lang-switcher">
+    <button class="lang-btn" onclick="switchLanguage('es')">
+      <img src="images/es.png" alt="Español">
+    </button>
+    <button class="lang-btn" onclick="switchLanguage('en')">
+      <img src="images/us.png" alt="English">
+    </button>
+  </div>
 </nav>
+
 <div class="container fade-in">
-<h1 data-i18n="contact">Contacto</h1>
-<form action="https://formspree.io/f/xqaqeqrk" id="contact-form" method="POST">
-<input data-i18n="namePlaceholder" name="name" placeholder="Nombre" required="" type="text"/>
-<input data-i18n="emailPlaceholder" name="email" placeholder="Correo electrónico" required="" type="email"/>
-<textarea data-i18n="messagePlaceholder" name="message" placeholder="Escribe tu mensaje aquí..." required=""></textarea>
-<button class="button" data-i18n="send" type="submit">Enviar Mensaje</button>
-</form>
-<div class="hidden" id="thank-you">
-<h2>¡Gracias por tu mensaje!</h2>
-<p>Te responderé lo antes posible.</p>
+  <h1 data-i18n="contact">Contacto</h1>
+
+  <form id="contact-form" action="https://formspree.io/f/xqaqeqrk" method="POST">
+    <input type="text" name="name" required placeholder="Nombre" data-i18n="namePlaceholder">
+    <input type="email" name="email" required placeholder="Correo electrónico" data-i18n="emailPlaceholder">
+    <textarea name="message" required placeholder="Escribe tu mensaje aquí..." data-i18n="messagePlaceholder"></textarea>
+    <button type="submit" class="button" data-i18n="send">Enviar Mensaje</button>
+  </form>
+
+  <div id="thank-you" class="hidden">
+    <h2>¡Gracias por tu mensaje!</h2>
+    <p>Te responderé lo antes posible.</p>
+  </div>
+
+  <div class="contact-info">
+    <p>Rosina Rey</p>
+    <p><a href="mailto:Rosina.rey.asis@gmail.com">Rosina.rey.asis@gmail.com</a></p>
+    <p><a href="https://wa.me/59898203870" target="_blank">+598 9820 3870</a></p>
+  </div>
 </div>
-<div class="contact-info">
-<p>Rosina Rey</p>
-<p><a href="mailto:Rosina.rey.asis@gmail.com">Rosina.rey.asis@gmail.com</a></p>
-<p><a href="https://wa.me/59898203870" target="_blank">+598 9820 3870</a></p>
-</div>
-</div>
-<a class="whatsapp-button" href="https://wa.me/59898203870" target="_blank">
-<img alt="WhatsApp" src="images/whatsapp.png"/>
+
+<a href="https://wa.me/59898203870" class="whatsapp-button" target="_blank">
+  <img src="images/whatsapp.png" alt="WhatsApp">
 </a>
+
 <script>
 const form = document.getElementById('contact-form');
 const thankYou = document.getElementById('thank-you');
@@ -74,26 +88,30 @@ form.addEventListener('submit', function(event) {
   });
 });
 </script>
+
 <style>
 .hidden {
   display: none;
 }
 </style>
+
+
 <footer class="site-footer">
-<div class="footer-content">
-<div class="footer-links">
-<a data-i18n="privacy" href="#">Privacidad</a>
-<a data-i18n="terms" href="#">Términos</a>
-<a data-i18n="accessibility" href="#">Accesibilidad</a>
-<a data-i18n="donotsell" href="#">No vender ni compartir mi información</a>
-</div>
-<div class="footer-social">
-<a href="#"><img alt="Facebook" src="images/facebook.png"/></a>
-<a href="#"><img alt="Twitter" src="images/twitter.png"/></a>
-<a href="#"><img alt="Instagram" src="images/instagram.png"/></a>
-</div>
-<p>© 2025 Rosina Rey Psicología. <span data-i18n="rights">Todos los derechos reservados.</span></p>
-</div>
+  <div class="footer-content">
+    <div class="footer-links">
+      <a href="#" data-i18n="privacy">Privacidad</a>
+      <a href="#" data-i18n="terms">Términos</a>
+      <a href="#" data-i18n="accessibility">Accesibilidad</a>
+      <a href="#" data-i18n="donotsell">No vender ni compartir mi información</a>
+    </div>
+    <div class="footer-social">
+      <a href="#"><img src="images/facebook.png" alt="Facebook"></a>
+      <a href="#"><img src="images/twitter.png" alt="Twitter"></a>
+      <a href="#"><img src="images/instagram.png" alt="Instagram"></a>
+    </div>
+    <p>&copy; 2025 Rosina Rey Psicología. <span data-i18n="rights">Todos los derechos reservados.</span></p>
+  </div>
 </footer>
+
 </body>
 </html>
