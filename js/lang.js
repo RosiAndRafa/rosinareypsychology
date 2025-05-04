@@ -105,10 +105,11 @@ document.addEventListener("DOMContentLoaded", () => {
     intro: "Te acompaño en tu camino hacia el bienestar emocional. Ofrezco un espacio seguro y acogedor para tu crecimiento personal.",
     book: "Agendar una Cita",
     servicesTitle: "Servicios",
-    service1: "✓ Terapia individual para adultos",
-    service2: "✓ Apoyo en ansiedad y depresión",
-    service3: "✓ Terapia de autoestima y manejo emocional",
-    service4: "✓ Acompañamiento en momentos de cambio vital"
+    service1: "✓ Terapia Online (Cognitivo-Conductual)",
+    service2: "✓ Atención a Pacientes con Adicciones",
+    service3: "✓ Terapia para Padres con Hijos Adictos",
+    service4: "✓ Talleres de Estimulación Cognitiva para adultos",
+    service5: "✓ Orientación Vocacional y Profesional"
   }
 };
 
