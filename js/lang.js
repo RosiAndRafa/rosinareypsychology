@@ -130,12 +130,16 @@ const translations = {
   }
 };
 
+
 function translate(lang) {
-  document.querySelectorAll('[data-translate]').forEach(el => {
-    const key = el.getAttribute('data-translate');
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.getAttribute('data-i18n');
     if (translations[lang] && translations[lang][key]) {
       el.innerText = translations[lang][key];
     }
+  });
+}
+
   });
 }
 
