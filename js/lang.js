@@ -1,4 +1,3 @@
-
 // js/lang.js
 const translations = {
   es: {
