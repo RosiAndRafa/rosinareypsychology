@@ -22,10 +22,11 @@ const translations = {
     welcome: "Welcome to Rosina Rey Psychology",
     book: "Book an Appointment",
     servicesTitle: "Services",
-    service1: "✓ Individual therapy for adults",
-    service2: "✓ Support with anxiety and depression",
-    service3: "✓ Self-esteem and emotional management therapy",
-    service4: "✓ Support during life transitions"
+    service1: "✓ Terapia Online (Cognitivo-Conductual)",
+    service2: "✓ Atención a Pacientes con Adicciones",
+    service3: "✓ Terapia para Padres con Hijos Adictos",
+    service4: "✓ Talleres de Estimulación Cognitiva para adultos",
+    service5: "✓ Orientación Vocacional y Profesional"
   },
   es: {
     aboutParagraph1: "Hola, soy Rosina. ¡Bienvenido a mi página! Soy Psicóloga con cinco años de experiencia trabajando con una amplia variedad de pacientes y situaciones.",
