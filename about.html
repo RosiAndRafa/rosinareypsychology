@@ -1,34 +1,66 @@
 <!DOCTYPE html>
+
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Sobre mí - Rosina Rey</title>
-  <link rel="stylesheet" href="css/styles.css" />
-  <script defer src="js/lang.js"></script>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Rosina Rey Psicología - Sobre mí</title>
+<meta content="Conoce a Rosina Rey, psicóloga especializada en bienestar emocional en Uruguay." name="description"/>
+<meta content="Psicóloga, Terapia, Bienestar, Rosina Rey, Psicología Uruguay" name="keywords"/>
+<meta content="Rosina Rey Psicología - Sobre mí" property="og:title"/>
+<meta content="Conoce a Rosina Rey, psicóloga especializada en bienestar emocional en Uruguay." property="og:description"/>
+<meta content="images/rosina-rey.jpg" property="og:image"/>
+<meta content="https://rosinareypsychology.com/about.html" property="og:url"/>
+<meta content="website" property="og:type"/>
+<meta content="summary_large_image" name="twitter:card"/>
+<meta content="Rosina Rey Psicología - Sobre mí" name="twitter:title"/>
+<meta content="Conoce a Rosina Rey, psicóloga especializada en bienestar emocional." name="twitter:description"/>
+<meta content="images/rosina-rey.jpg" name="twitter:image"/>
+<link href="favicon.ico" rel="icon" type="image/x-icon"/>
+<link href="css/styles.css?v=3" rel="stylesheet"/>
+<script defer="" src="js/lang.js"></script>
 </head>
 <body>
-  <header>
-    <nav>
-      <ul>
-        <li><a href="index.html" data-i18n="home">Inicio</a></li>
-        <li><a href="about.html" data-i18n="about">Sobre mí</a></li>
-        <li><a href="contact.html" data-i18n="contact">Contacto</a></li>
-      </ul>
-    </nav>
-  </header>
+<nav>
+<div class="nav-center">
+<a data-i18n="home" href="index.html">Inicio</a>
+<a data-i18n="about" href="about.html">Sobre mí</a>
+<a data-i18n="contact" href="contact.html">Contacto</a>
+</div>
+<div class="lang-switcher">
+<button class="lang-btn" onclick="switchLanguage('es')">
+<img alt="Español" src="images/es.png"/>
+</button>
+<button class="lang-btn" onclick="switchLanguage('en')">
+<img alt="English" src="images/us.png"/>
+</button>
+</div>
+</nav>
+<div class="container profile fade-in"><img alt="Rosina Rey" src="images/rosina-rey.jpg" style="max-width: 100%; border-radius: 10px; margin-bottom: 1.5rem;"/><p data-i18n="aboutParagraph1">Hola, soy Rosina. ¡Bienvenido a mi página! Soy Psicóloga con cinco años de experiencia trabajando con una amplia variedad de pacientes y situaciones.</p><p data-i18n="aboutParagraph2">Durante dos años formé parte del equipo de un centro psiquiátrico, lo que me permitió adquirir un sólido manejo en el abordaje de diversas problemáticas.</p><p data-i18n="aboutParagraph3">Tengo experiencia en el tratamiento de depresión, duelos por separación, baja autoestima, trastorno bipolar, trastornos de ansiedad, trastorno límite de la personalidad, esquizofrenia, adicciones, entre otros.</p><p data-i18n="aboutParagraph4">También he trabajado como profesora en la Universidad de la República (UDELAR) y en Recursos Humanos.</p><p data-i18n="aboutParagraph5">Actualmente me dedico a mi gran pasión: la atención clínica personalizada de pacientes con un enfoque cognitivo-conductual.</p><p>Agendar una Cita</p><p>Rosina Rey</p><p>Rosina.rey.asis@gmail.com</p><p>+598 9820 3870</p></div>
+<a class="whatsapp-button" href="https://wa.me/59898203870" target="_blank">
+<img alt="WhatsApp" src="images/whatsapp.png" style="height: 32px; margin: 0 6px;"/>
+</a>
+<footer class="site-footer">
+<div class="footer-content">
+<div style="text-align: center; margin-top: 12px;">
+<a href="https://www.tiktok.com/@rosinareyasis?_t=ZN-8w4TeZscWYA&amp;_r=1" target="_blank">
+<img alt="TikTok" src="images/tiktok.png" style="width:48px; height:48px; margin: 0 8px;"/>
+</a>
+<a href="https://www.instagram.com/psicologarosinarey/?igsh=cXh6MjMzajlibmRk#" target="_blank">
+<img alt="Instagram" src="images/instagram.png" style="width:48px; height:48px; margin: 0 8px;"/>
+</a>
+</div>
 
-  <section class="hero">
-    <h1 data-i18n="about"></h1>
-    <p data-i18n="about_text"></p>
-  </section>
-
-  <footer>
-    <p>&copy; <span id="year"></span> Rosina Rey Psicología</p>
-  </footer>
-
-  <script>
-    document.getElementById("year").textContent = new Date().getFullYear();
-  </script>
+<div class="footer-links">
+<a data-i18n="privacy" href="#">Privacidad</a>
+<a data-i18n="terms" href="#">Términos</a>
+<a data-i18n="accessibility" href="#">Accesibilidad</a>
+<a data-i18n="donotsell" href="#">No vender ni compartir mi información</a>
+</div>
+<div class="footer-social">
+</div>
+<p>© 2025 Rosina Rey Psicología. <span data-i18n="rights">Todos los derechos reservados.</span></p>
+</div>
+</footer>
 </body>
 </html>
