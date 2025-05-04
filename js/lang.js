@@ -29,9 +29,9 @@ aboutParagraph1: "Hi, I'm Rosina. Welcome to my page! I'm a psychologist with fi
     intro: "I accompany you on your path to emotional well-being. I offer a safe and welcoming space for your personal growth.",
     book: "Book an Appointment",
     servicesTitle: "Services",
-    service1: "✓ Individual therapy for adults",
-    service2: "✓ Support with anxiety and depression",
-    service3: "✓ Self-esteem and emotional management therapy",
+    
+    
+    
     service4: "✓ Support during life transitions"
   },
   es: {
@@ -64,9 +64,9 @@ aboutParagraph1: "Hola, soy Rosina. ¡Bienvenido a mi página! Soy Psicóloga co
     intro: "Te acompaño en tu camino hacia el bienestar emocional. Ofrezco un espacio seguro y acogedor para tu crecimiento personal.",
     book: "Agendar una Cita",
     servicesTitle: "Servicios",
-    service1: "✓ Terapia individual para adultos",
-    service2: "✓ Apoyo en ansiedad y depresión",
-    service3: "✓ Terapia de autoestima y manejo emocional",
+    
+    
+    
     service4: "✓ Acompañamiento en momentos de cambio vital"
   }
 };
