@@ -60,6 +60,7 @@ const translations = {
     "index_key16": "Accesibilidad",
     "index_key17": "No vender ni compartir mi información",
     "index_key18": "Todos los derechos reservados.",
+    "index_key99": "“No se trata de lo que nos sucede, sino de cómo respondemos a lo que nos sucede.– Epicteto"",
   },
   en: {
     "404_key1": "Home",
@@ -121,6 +122,7 @@ const translations = {
     "index_key16": "Accessibility",
     "index_key17": "Do not sell or share my information",
     "index_key18": "All rights reserved",
+    "index_key99": "It's not what happens to us, but how we respond to it. – Epictetus",
   }
 };
 
