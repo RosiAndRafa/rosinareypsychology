@@ -27,67 +27,60 @@
 <a data-i18n="about" href="about.html">Sobre mí</a>
 <a data-i18n="contact" href="contact.html">Contacto</a>
 </div>
-
+<div class="lang-switcher">
+<button class="lang-btn" onclick="switchLanguage('es')">
+<img alt="Español" src="images/es.png"/>
+</button>
+<button class="lang-btn" onclick="switchLanguage('en')">
+<img alt="English" src="images/us.png"/>
+</button>
+</div>
 </nav>
-<div style="background-image: url('images/background.jpg'); background-size: cover; background-position: center; padding: 60px 20px; text-align: center;">
-<h1 style="font-size: 2.5em;">
-<span class="es" style="display:block;">Bienvenido/a a tu espacio de terapia online</span>
-<span class="en" style="display:none;">Welcome to your online therapy space</span>
-</h1>
+<div class="hero fade-in">
+<h1 data-i18n="welcome">Bienvenido a Psicología Rosina Rey</h1>
+<p data-i18n="intro">
+    Te acompaño en tu camino hacia el bienestar emocional. Ofrezco un espacio seguro y acogedor para tu crecimiento personal.
+  </p>
+<a class="button" data-i18n="book" href="https://wa.me/59898203870" target="_blank">Agendar una Cita</a>
 </div>
-<div style="text-align: center; margin-top: 40px;">
-<div style="display: flex; justify-content: center; gap: 40px; flex-wrap: wrap; margin-top: 40px; padding: 0 20px;">
-<div style="flex: 1; max-width: 500px;">
-<div class="es" style="display: block;">
-<h2>Bienvenido/a. ¡Estás dando un paso importante!</h2>
-<p>
-            Trabajo desde un enfoque cognitivo-conductual, de forma online, adaptando el proceso terapéutico a tus tiempos y necesidades.<br/><br/>
-            “No se trata de lo que nos sucede, sino de cómo respondemos a lo que nos sucede.” – Epicteto<br/><br/>
-            Si estás listo/a para comenzar este proceso de cambio y crecimiento, no dudes en contactarme.
-            Juntos podemos trabajar hacia un bienestar más pleno y una vida más equilibrada.
-        </p>
-</div>
-<div class="en" style="display: none;">
-<h2>Welcome. You are taking an important step!</h2>
-<p>
-            I work from a cognitive-behavioral approach, offering online therapy adapted to your pace and needs.<br/><br/>
-            “It’s not what happens to us, but how we respond to what happens to us.” – Epictetus<br/><br/>
-            If you’re ready to begin this journey of change and growth, don’t hesitate to contact me.
-            Together, we can work toward greater well-being and a more balanced life.
-        </p>
-</div>
-</div>
-<div style="flex: 1; max-width: 500px;">
-<div class="es" style="display: block;">
-<h2>Servicios</h2>
+<div class="container fade-in">
+<h2 data-i18n="servicesTitle">Servicios</h2>
 <ul>
-<li><img alt="✓" src="images/checkmark.png" style="width: 16px; vertical-align: middle; margin-right: 8px;"/>Terapia Online (Cognitivo-Conductual)</li>
-<li><img alt="✓" src="images/checkmark.png" style="width: 16px; vertical-align: middle; margin-right: 8px;"/>Atención a Pacientes con Adicciones</li>
-<li><img alt="✓" src="images/checkmark.png" style="width: 16px; vertical-align: middle; margin-right: 8px;"/>Terapia para Padres con Hijos Adictos</li>
-<li><img alt="✓" src="images/checkmark.png" style="width: 16px; vertical-align: middle; margin-right: 8px;"/>Talleres de Estimulación Cognitiva para adultos mayores</li>
-<li><img alt="✓" src="images/checkmark.png" style="width: 16px; vertical-align: middle; margin-right: 8px;"/>Orientación Vocacional y Profesional</li>
+<li data-i18n="service1">✓ Terapia individual para adultos</li>
+<li data-i18n="service2">✓ Apoyo en ansiedad y depresión</li>
+<li data-i18n="service3">✓ Terapia de autoestima y manejo emocional</li>
+<li data-i18n="service4">✓ Acompañamiento en momentos de cambio vital</li>
 </ul>
+<div class="contact-info">
+<p>Rosina Rey</p>
+<p><a href="mailto:Rosina.rey.asis@gmail.com">Rosina.rey.asis@gmail.com</a></p>
+<p><a href="https://wa.me/59898203870" target="_blank">+598 9820 3870</a></p>
 </div>
-<div class="en" style="display: none;">
-<h2>Services</h2>
-<ul>
-<li><img alt="✓" src="images/checkmark.png" style="width: 16px; vertical-align: middle; margin-right: 8px;"/>Online Therapy (Cognitive-Behavioral)</li>
-<li><img alt="✓" src="images/checkmark.png" style="width: 16px; vertical-align: middle; margin-right: 8px;"/>Treatment for Patients with Addictions</li>
-<li><img alt="✓" src="images/checkmark.png" style="width: 16px; vertical-align: middle; margin-right: 8px;"/>Therapy for Parents of Addicted Children</li>
-<li><img alt="✓" src="images/checkmark.png" style="width: 16px; vertical-align: middle; margin-right: 8px;"/>Cognitive Stimulation Workshops for Seniors</li>
-<li><img alt="✓" src="images/checkmark.png" style="width: 16px; vertical-align: middle; margin-right: 8px;"/>Vocational and Career Guidance</li>
-</ul>
-</div>
-</div>
-</div><div style="text-align: center; margin: 60px auto; padding: 0 20px;"><button class="lang-btn" onclick="switchLanguage('es')">Agendar una Cita</button></div>
 </div>
 <a class="whatsapp-button" href="https://wa.me/59898203870" target="_blank">
 <img alt="WhatsApp" src="images/whatsapp.png" style="height: 32px; margin: 0 6px;"/>
 </a>
 <footer class="site-footer">
-<div style="text-align: center; margin: 40px 0;"><button class="lang-btn" onclick="switchLanguage('es')">
-<img alt="Español" src="images/es.png"/>
-</button></div>
+<div class="footer-content">
+<div style="text-align: center; margin-top: 12px;">
+<a href="https://www.tiktok.com/@rosinareyasis?_t=ZN-8w4TeZscWYA&amp;_r=1" target="_blank">
+<img alt="TikTok" src="images/tiktok.png" style="width:48px; height:48px; margin: 0 8px;"/>
+</a>
+<a href="https://www.instagram.com/psicologarosinarey/?igsh=cXh6MjMzajlibmRk#" target="_blank">
+<img alt="Instagram" src="images/instagram.png" style="width:48px; height:48px; margin: 0 8px;"/>
+</a>
+</div>
+
+<div class="footer-links">
+<a data-i18n="privacy" href="#">Privacidad</a>
+<a data-i18n="terms" href="#">Términos</a>
+<a data-i18n="accessibility" href="#">Accesibilidad</a>
+<a data-i18n="donotsell" href="#">No vender ni compartir mi información</a>
+</div>
+<div class="footer-social">
+</div>
+<p>© 2025 Rosina Rey Psicología. <span data-i18n="rights">Todos los derechos reservados.</span></p>
+</div>
 </footer>
 </body>
 </html>
