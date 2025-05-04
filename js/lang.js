@@ -1,6 +1,9 @@
 
 const translations = {
   es: {
+    "index_key5": "Trabajo desde un enfoque cognitivo-conductual, de forma online, adaptando el proceso terapéutico a tus tiempos y necesidades.",
+    "index_key6": "Si estás listo/a para comenzar este proceso de cambio y crecimiento, no dudes en contactarme. Juntos podemos trabajar hacia un bienestar más pleno y una vida más equilibrada.",
+    "index_key18": "© 2025 Rosina Rey Psicología. Todos los derechos reservados.",
     "service1": "✓ Terapia Online (Cognitivo-Conductual)",
     "service2": "✓ Atención a Pacientes con Adicciones",
     "service3": "✓ Terapia para Padres con Hijos Adictos",
