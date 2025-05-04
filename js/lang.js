@@ -102,7 +102,6 @@ document.addEventListener("DOMContentLoaded", () => {
     donotsell: "No vender ni compartir mi información",
     rights: "Todos los derechos reservados.",
     welcome: "Bienvenido/a a tu espacio de terapia online",
-    intro: "Te acompaño en tu camino hacia el bienestar emocional. Ofrezco un espacio seguro y acogedor para tu crecimiento personal.",
     book: "Agendar una Cita",
     servicesTitle: "Servicios",
     service1: "✓ Terapia Online (Cognitivo-Conductual)",
