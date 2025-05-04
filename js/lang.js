@@ -35,7 +35,13 @@ aboutParagraph1: "Hi, I'm Rosina. Welcome to my page! I'm a psychologist with fi
     service4: "✓ Support during life transitions"
   },
   es: {
-    aboutParagraph1: "Hola, soy Rosina. ¡Bienvenido a mi página! Soy Psicóloga con cinco años de experiencia trabajando con una amplia variedad de pacientes y situaciones.",
+    
+    welcome_title: "Bienvenido/a. ¡Estás dando un paso importante!",
+    welcome_body: "Trabajo desde un enfoque cognitivo-conductual, de forma online, adaptando el proceso terapéutico a tus tiempos y necesidades.",
+    welcome_quote: "No se trata de lo que nos sucede, sino de cómo respondemos a lo que nos sucede.– Epicteto",
+    welcome_cta: "Si estás listo/a para comenzar este proceso de cambio y crecimiento, no dudes en contactarme. Juntos podemos trabajar hacia un bienestar más pleno y una vida más equilibrada.",
+    book_button: "Reservar una cita",
+aboutParagraph1: "Hola, soy Rosina. ¡Bienvenido a mi página! Soy Psicóloga con cinco años de experiencia trabajando con una amplia variedad de pacientes y situaciones.",
     aboutParagraph2: "Durante dos años formé parte del equipo de un centro psiquiátrico, lo que me permitió adquirir un sólido manejo en el abordaje de diversas problemáticas.",
     aboutParagraph3: "Tengo experiencia en el tratamiento de depresión, duelos por separación, baja autoestima, trastorno bipolar, trastornos de ansiedad, trastorno límite de la personalidad, esquizofrenia, adicciones, entre otros.",
     aboutParagraph4: "También he trabajado como profesora en la Universidad de la República (UDELAR) y en Recursos Humanos.",
