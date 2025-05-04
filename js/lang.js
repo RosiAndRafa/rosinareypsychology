@@ -5,7 +5,7 @@ const translations = {
     "service1": "✓ Terapia Online (Cognitivo-Conductual)",
     "service2": "✓ Manejo de Ansiedad y Depresión",
     "service3": "✓ Terapia para Padres con Hijos Adictos",
-    "servicesTitle": "Servicios"
+    "servicesTitle": "Servicios",
 
     "404_key1": "Inicio",
     "404_key2": "Sobre mí",
