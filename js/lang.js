@@ -1,6 +1,12 @@
 const translations = {
   en: {
-    aboutParagraph1: "Hi, I'm Rosina. Welcome to my page! I'm a psychologist with five years of experience working with a wide variety of patients and situations.",
+    
+    welcome_title: "Welcome. You're taking an important step!",
+    welcome_body: "I work from a cognitive-behavioral approach, online, adapting to your timing and needs.",
+    welcome_quote: "It’s not what happens to us, but how we respond to it. – Epictetus",
+    welcome_cta: "If you're ready to begin this journey of change and growth, contact me. Together we can work toward greater well-being and a more balanced life.",
+    book_button: "Book an Appointment",
+aboutParagraph1: "Hi, I'm Rosina. Welcome to my page! I'm a psychologist with five years of experience working with a wide variety of patients and situations.",
     aboutParagraph2: "For two years I was part of a psychiatric center team, which gave me solid skills in handling diverse mental health issues.",
     aboutParagraph3: "I have experience treating depression, separation grief, low self-esteem, bipolar disorder, anxiety disorders, borderline personality disorder, schizophrenia, addictions, among others.",
     aboutParagraph4: "I've also worked as a professor at the University of the Republic (UDELAR) and in Human Resources.",
