@@ -21,11 +21,15 @@
 <script defer="" src="js/lang.js"></script>
 </head>
 <body>
+<div style="position: fixed; top: 10px; right: 10px; z-index: 999;">
+  <button id="lang-es">Español</button>
+  <button id="lang-en">English</button>
+</div>
 <nav>
 <div class="nav-center">
-<a data-i18n="home" href="index.html">Inicio</a>
-<a data-i18n="about" href="about.html">Sobre mí</a>
-<a data-i18n="contact" href="contact.html">Contacto</a>
+<a data-i18n="home" data-translate="index_key1" href="index.html">Inicio</a>
+<a data-i18n="about" data-translate="index_key2" href="about.html">Sobre mí</a>
+<a data-i18n="contact" data-translate="index_key3" href="contact.html">Contacto</a>
 </div>
 <div class="lang-switcher">
 <button class="lang-btn" onclick="switchLanguage('es')">
@@ -37,14 +41,14 @@
 </div>
 </nav>
 <div class="hero fade-in">
-<h1 data-i18n="welcome">Bienvenido/a a tu espacio de terapia online</h1>
-<p>Trabajo desde un enfoque cognitivo-conductual, de forma online, adaptando el proceso terapéutico a tus tiempos y necesidades.</p>
+<h1 data-i18n="welcome" data-translate="index_key4">Bienvenido/a a tu espacio de terapia online</h1>
+<p data-translate="index_key5">Trabajo desde un enfoque cognitivo-conductual, de forma online, adaptando el proceso terapéutico a tus tiempos y necesidades.</p>
 <blockquote>“No se trata de lo que nos sucede, sino de cómo respondemos a lo que nos sucede.– Epicteto"</blockquote>
-<p>Si estás listo/a para comenzar este proceso de cambio y crecimiento, no dudes en contactarme. Juntos podemos trabajar hacia un bienestar más pleno y una vida más equilibrada.</p>
-<a class="button" data-i18n="book" href="https://wa.me/59898203870" target="_blank">Agendar una Cita</a>
+<p data-translate="index_key6">Si estás listo/a para comenzar este proceso de cambio y crecimiento, no dudes en contactarme. Juntos podemos trabajar hacia un bienestar más pleno y una vida más equilibrada.</p>
+<a class="button" data-i18n="book" data-translate="index_key7" href="https://wa.me/59898203870" target="_blank">Agendar una Cita</a>
 </div>
 <div class="container fade-in">
-<h2 data-i18n="servicesTitle">Servicios</h2>
+<h2 data-i18n="servicesTitle" data-translate="index_key8">Servicios</h2>
 <ul>
 <li data-i18n="service1">✓ Terapia Online (Cognitivo-Conductual)</li>
 <li data-i18n="service2">✓ Atención a Pacientes con Adicciones</li>
@@ -52,9 +56,9 @@
 <li data-i18n="service4">✓ Talleres de Estimulación Cognitiva para adultos</li>
 <li data-i18n="service5">✓Orientación Vocacional y Profesional</li>
 </ul><div class="contact-info">
-<p>Rosina Rey</p>
-<p><a href="mailto:Rosina.rey.asis@gmail.com">Rosina.rey.asis@gmail.com</a></p>
-<p><a href="https://wa.me/59898203870" target="_blank">+598 9820 3870</a></p>
+<p data-translate="index_key9">Rosina Rey</p>
+<p data-translate="index_key10"><a data-translate="index_key11" href="mailto:Rosina.rey.asis@gmail.com">Rosina.rey.asis@gmail.com</a></p>
+<p data-translate="index_key12"><a data-translate="index_key13" href="https://wa.me/59898203870" target="_blank">+598 9820 3870</a></p>
 </div>
 </div>
 <a class="whatsapp-button" href="https://wa.me/59898203870" target="_blank">
@@ -70,16 +74,15 @@
 <img alt="Instagram" src="images/instagram.png" style="width:48px; height:48px; margin: 0 8px;"/>
 </a>
 </div>
-
 <div class="footer-links">
-<a data-i18n="privacy" href="#">Privacidad</a>
-<a data-i18n="terms" href="#">Términos</a>
-<a data-i18n="accessibility" href="#">Accesibilidad</a>
-<a data-i18n="donotsell" href="#">No vender ni compartir mi información</a>
+<a data-i18n="privacy" data-translate="index_key14" href="#">Privacidad</a>
+<a data-i18n="terms" data-translate="index_key15" href="#">Términos</a>
+<a data-i18n="accessibility" data-translate="index_key16" href="#">Accesibilidad</a>
+<a data-i18n="donotsell" data-translate="index_key17" href="#">No vender ni compartir mi información</a>
 </div>
 <div class="footer-social">
 </div>
-<p>© 2025 Rosina Rey Psicología. <span data-i18n="rights">Todos los derechos reservados.</span></p>
+<p>© 2025 Rosina Rey Psicología. <span data-i18n="rights" data-translate="index_key18">Todos los derechos reservados.</span></p>
 </div>
 </footer>
 </body>

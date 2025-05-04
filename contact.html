@@ -21,11 +21,15 @@
 <script defer="" src="js/lang.js"></script>
 </head>
 <body>
+<div style="position: fixed; top: 10px; right: 10px; z-index: 999;">
+  <button id="lang-es">Español</button>
+  <button id="lang-en">English</button>
+</div>
 <nav>
 <div class="nav-center">
-<a data-i18n="home" href="index.html">Inicio</a>
-<a data-i18n="about" href="about.html">Sobre mí</a>
-<a data-i18n="contact" href="contact.html">Contacto</a>
+<a data-i18n="home" data-translate="contact_key1" href="index.html">Inicio</a>
+<a data-i18n="about" data-translate="contact_key2" href="about.html">Sobre mí</a>
+<a data-i18n="contact" data-translate="contact_key3" href="contact.html">Contacto</a>
 </div>
 <div class="lang-switcher">
 <button class="lang-btn" onclick="switchLanguage('es')">
@@ -37,21 +41,21 @@
 </div>
 </nav>
 <div class="container fade-in">
-<h1 data-i18n="contact">Contacto</h1>
+<h1 data-i18n="contact" data-translate="contact_key4">Contacto</h1>
 <form action="https://formspree.io/f/xqaqeqrk" id="contact-form" method="POST">
 <input data-i18n="namePlaceholder" name="name" placeholder="Nombre" required="" type="text"/>
 <input data-i18n="emailPlaceholder" name="email" placeholder="Correo electrónico" required="" type="email"/>
 <textarea data-i18n="messagePlaceholder" name="message" placeholder="Escribe tu mensaje aquí..." required=""></textarea>
-<button class="button" data-i18n="sendButton" type="submit">Enviar Mensaje</button>
+<button class="button" data-i18n="sendButton" data-translate="contact_key5" type="submit">Enviar Mensaje</button>
 </form>
 <div class="hidden" id="thank-you">
-<h2>¡Gracias por tu mensaje!</h2>
-<p>Te responderé lo antes posible.</p>
+<h2 data-translate="contact_key6">¡Gracias por tu mensaje!</h2>
+<p data-translate="contact_key7">Te responderé lo antes posible.</p>
 </div>
 <div class="contact-info">
-<p>Rosina Rey</p>
-<p><a href="mailto:Rosina.rey.asis@gmail.com">Rosina.rey.asis@gmail.com</a></p>
-<p><a href="https://wa.me/59898203870" target="_blank">+598 9820 3870</a></p>
+<p data-translate="contact_key8">Rosina Rey</p>
+<p data-translate="contact_key9"><a data-translate="contact_key10" href="mailto:Rosina.rey.asis@gmail.com">Rosina.rey.asis@gmail.com</a></p>
+<p data-translate="contact_key11"><a data-translate="contact_key12" href="https://wa.me/59898203870" target="_blank">+598 9820 3870</a></p>
 </div>
 </div>
 <a class="whatsapp-button" href="https://wa.me/59898203870" target="_blank">
@@ -96,16 +100,15 @@ form.addEventListener('submit', function(event) {
 <img alt="Instagram" src="images/instagram.png" style="width:48px; height:48px; margin: 0 8px;"/>
 </a>
 </div>
-
 <div class="footer-links">
-<a data-i18n="privacy" href="#">Privacidad</a>
-<a data-i18n="terms" href="#">Términos</a>
-<a data-i18n="accessibility" href="#">Accesibilidad</a>
-<a data-i18n="donotsell" href="#">No vender ni compartir mi información</a>
+<a data-i18n="privacy" data-translate="contact_key13" href="#">Privacidad</a>
+<a data-i18n="terms" data-translate="contact_key14" href="#">Términos</a>
+<a data-i18n="accessibility" data-translate="contact_key15" href="#">Accesibilidad</a>
+<a data-i18n="donotsell" data-translate="contact_key16" href="#">No vender ni compartir mi información</a>
 </div>
 <div class="footer-social">
 </div>
-<p>© 2025 Rosina Rey Psicología. <span data-i18n="rights">Todos los derechos reservados.</span></p>
+<p>© 2025 Rosina Rey Psicología. <span data-i18n="rights" data-translate="contact_key17">Todos los derechos reservados.</span></p>
 </div>
 </footer>
 </body>
