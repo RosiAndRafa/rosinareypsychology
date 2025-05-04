@@ -1,5 +1,12 @@
 const translations = {
   en: {
+
+    service1: "✓ Online Therapy (Cognitive-Behavioral)",
+    service2: "✓ Support for Patients with Addictions",
+    service3: "✓ Therapy for Parents of Addicted Children",
+    service4: "✓ Cognitive Stimulation Workshops for Seniors",
+    service5: "✓ Vocational and Career Guidance",
+
     
     welcome_title: "Welcome. You're taking an important step!",
     welcome_body: "I work from a cognitive-behavioral approach, online, adapting to your timing and needs.",
@@ -35,6 +42,13 @@ aboutParagraph1: "Hi, I'm Rosina. Welcome to my page! I'm a psychologist with fi
     service4: "✓ Support during life transitions"
   },
   es: {
+
+    service1: "✓ Terapia Online (Cognitivo-Conductual)",
+    service2: "✓ Atención a Pacientes con Adicciones",
+    service3: "✓ Terapia para Padres con Hijos Adictos",
+    service4: "✓ Talleres de Estimulación Cognitiva para adultos mayores",
+    service5: "✓ Orientación Vocacional y Profesional",
+
     
     welcome_title: "Bienvenido/a. ¡Estás dando un paso importante!",
     welcome_body: "Trabajo desde un enfoque cognitivo-conductual, de forma online, adaptando el proceso terapéutico a tus tiempos y necesidades.",
