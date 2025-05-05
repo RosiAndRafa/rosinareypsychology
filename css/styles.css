@@ -283,7 +283,7 @@ textarea {
 /* Match About Me contact link styles to Home page */
 .about-contact a[href^="mailto:"],
 .about-contact a[href^="https://wa.me"] {
-  color: inherit;
+  color: #4da6ff;
   text-decoration: none;
 }
 
