@@ -133,7 +133,6 @@ const translations = {
     "index_key22": "✓ Cognitive Stimulation Workshops for Adults",
     "index_key23": "✓ Vocational and Career Guidance",
     "index_key24": "It's not what happens to us, but how we respond to what happens to us. – Epictetus"
-}
   }
 };
 
