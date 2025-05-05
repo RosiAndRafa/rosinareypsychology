@@ -60,6 +60,11 @@ const translations = {
     "index_key16": "Accesibilidad",
     "index_key17": "No vender ni compartir mi información",
     "index_key18": "Todos los derechos reservados.",
+    "index_key19": "✓ Terapia Online (Cognitivo-Conductual)",
+    "index_key20": "✓ Atención a Pacientes con Adicciones",
+    "index_key21": "✓ Terapia para Padres con Hijos Adictos",
+    "index_key22": "✓ Talleres de Estimulación Cognitiva para adultos",
+    "index_key23": "✓Orientación Vocacional y Profesional",
   },
   en: {
     "404_key1": "Home",
@@ -121,6 +126,11 @@ const translations = {
     "index_key16": "Accessibility",
     "index_key17": "Do not sell or share my information",
     "index_key18": "All rights reserved",
+    "index_key19": "✓ Online Therapy (Cognitive-Behavioral)",
+    "index_key20": "✓ Support for Patients with Addictions",
+    "index_key21": "✓ Therapy for Parents of Addicted Children",
+    "index_key22": "✓ Cognitive Stimulation Workshops for Adults",
+    "index_key23": "✓ Vocational and Career Guidance",
   }
 };
 
