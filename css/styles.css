@@ -279,3 +279,14 @@ textarea {
   border-radius: 10px;
   box-shadow: 0 2px 8px rgba(0,0,0,0.05);
 }
+
+/* Match About Me contact link styles to Home page */
+.about-contact a[href^="mailto:"],
+.about-contact a[href^="https://wa.me"] {
+  color: inherit;
+  text-decoration: none;
+}
+
+.about-contact a:hover {
+  text-decoration: underline;
+}
