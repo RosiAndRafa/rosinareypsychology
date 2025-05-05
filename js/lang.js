@@ -109,7 +109,7 @@ const translations = {
     "index_key3": "Contact",
     "index_key4": "Welcome to your online therapy space",
     "index_key5": "I work from a cognitive-behavioral approach, creating a supportive and confidential space to help you achieve emotional well-being.",
-    "index_key6": ""quote_epicteto": "It's not what happens to us, but how we respond to what happens to us. – Epictetus",
+    "index_key6": "quote_epicteto": "It's not what happens to us, but how we respond to what happens to us. – Epictetus",
     "index_key7": "If you're ready to start this journey of self-discovery and growth, I'm here to accompany you.",
     "index_key8": "Schedule an Appointment",
     "index_key9": "Services",
