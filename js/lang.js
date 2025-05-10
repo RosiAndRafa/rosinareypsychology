@@ -137,7 +137,7 @@ const translations = {
     "index_key22": "✓ Cognitive Stimulation Workshops for Adults",
     "index_key23": "✓ Vocational and Career Guidance",
     "index_key24": "It's not what happens to us, but how we respond to what happens to us. – Epictetus"
-   // ✅ Google Review Section
+  // ✅ Google Review Section
     "review_heading": "Share Your Experience",
     "review_text": "I appreciate your feedback! Please leave a review on Google.",
     "review_button": "⭐ Leave a Google Review"
