@@ -72,7 +72,7 @@ const translations = {
     "review_text": "¡Aprecio tus comentarios! Por favor, deja una reseña en Google.",
     "review_button": "⭐ Dejar una reseña en Google"
 
-  }
+  },
   en: {
     "404_key1": "Home",
     "404_key2": "About Me",
@@ -144,7 +144,7 @@ const translations = {
     "review_heading": "Share Your Experience",
     "review_text": "I appreciate your feedback! Please leave a review on Google.",
     "review_button": "⭐ Leave a Google Review"
-  } //
+  }
 };
 
 function translate(lang) {
