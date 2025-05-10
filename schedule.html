@@ -5,7 +5,126 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Agendar una Cita</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
-    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr">    // Form submission logic
+    document.getElementById('booking-form').addEventListener('submit', (e) => {
+        e.preventDefault();
+
+        // Collect form data
+        const firstName = document.getElementById('first-name').value;
+        const lastName = document.getElementById('last-name').value;
+        const email = document.getElementById('email').value;
+        const phone = document.getElementById('phone').value;
+
+        if (selectedDate && selectedTime) {
+            bookedSlots.push(selectedTime);
+            document.getElementById('success-message').style.display = 'block';
+            document.getElementById('form-container').style.display = 'none';
+
+            // Send Email Notification
+            fetch('https://formsubmit.co/ajax/rosinareyasis@gmail.com', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    Date: selectedTime,
+                    FirstName: firstName,
+                    LastName: lastName,
+                    Email: email,
+                    Phone: phone,
+                    Message: `Nueva cita reservada para ${selectedTime}`
+                })
+            })
+            .then(response => response.json())
+            .then(data => console.log(data))
+            .catch(error => console.error('Error:', error));
+
+            console.log("Appointment booked for:", selectedTime);
+        } else {
+            alert("Por favor, selecciona una fecha y hora.");
+        }
+    });
+
+    // Show form after time is selected
+    document.getElementById('confirm-button').addEventListener('click', () => {
+        document.getElementById('form-container').style.display = 'block';
+    });
+
+
+    // Save the booked slot to JSON
+    function saveBookingToServer(slot) {
+        fetch('/save_booking', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                date: slot
+            })
+        })
+        .then(response => response.json())
+        .then(data => console.log('Slot saved:', data))
+        .catch(error => console.error('Error saving slot:', error));
+    }
+
+    // Call this function after successful form submission
+    document.getElementById('booking-form').addEventListener('submit', (e) => {
+        e.preventDefault();
+
+        // Collect form data
+        const firstName = document.getElementById('first-name').value;
+        const lastName = document.getElementById('last-name').value;
+        const email = document.getElementById('email').value;
+        const phone = document.getElementById('phone').value;
+
+        if (selectedDate && selectedTime) {
+            bookedSlots.push(selectedTime);
+            saveBookingToServer(selectedTime);
+
+            document.getElementById('success-message').style.display = 'block';
+            document.getElementById('form-container').style.display = 'none';
+
+            // Send Email Notification
+            fetch('https://formsubmit.co/ajax/rosinareyasis@gmail.com', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    Date: selectedTime,
+                    FirstName: firstName,
+                    LastName: lastName,
+                    Email: email,
+                    Phone: phone,
+                    Message: `Nueva cita reservada para ${selectedTime}`
+                })
+            })
+            .then(response => response.json())
+            .then(data => console.log(data))
+            .catch(error => console.error('Error:', error));
+
+            console.log("Appointment booked for:", selectedTime);
+        } else {
+            alert("Por favor, selecciona una fecha y hora.");
+        }
+    });
+
+
+    // Simulate backend save to booked_slots.json
+    fetch('/save_booking', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            date: selectedTime
+        })
+    })
+    .then(response => response.json())
+    .then(data => console.log('Slot saved to server:', data))
+    .catch(error => console.error('Error saving slot:', error));
+
+</script>
     <script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/l10n/es.js"></script>
 </head>
 <body>
@@ -19,16 +138,197 @@
 <p>Selecciona una hora:</p>
 <div id="time-slots"></div>
 
-<button id="confirm-button" style="display: none;">Confirmar Reserva</button>
+<button id="confirm-button" style="display: none;">Continuar</button>
 
 <!-- Success Message -->
+<div id="form-container" style="display: none;">
+    <h2>Introduce tus datos:</h2>
+    <form id="booking-form">
+        <input type="text" id="first-name" placeholder="Nombre" required>
+        <input type="text" id="last-name" placeholder="Apellido" required>
+        <input type="email" id="email" placeholder="Correo Electrónico" required>
+        <input type="tel" id="phone" placeholder="Teléfono" required>
+        <button type="submit">Confirmar Reserva</button>
+    </form>
+</div>
+
 <div id="success-message" style="display: none;">
     <p>¡Tu cita ha sido reservada con éxito!</p>
 </div>
 
-<!-- Calendar and Booking Logic -->
+<!-- Custom Styles -->
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f9f9f9;
+        color: #333;
+    }
+    h1 {
+        text-align: center;
+        margin-top: 30px;
+    }
+    p {
+        text-align: center;
+    }
+    #calendar {
+        max-width: 400px;
+        margin: 20px auto;
+    }
+    #time-slots {
+        max-width: 400px;
+        margin: 10px auto;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 10px;
+    }
+    button.time-slot {
+        padding: 10px;
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    button.time-slot.disabled {
+        background-color: #ccc;
+        cursor: not-allowed;
+    }
+    #confirm-button {
+        display: block;
+        margin: 20px auto;
+        padding: 10px 20px;
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+    }
+    #confirm-button:hover {
+        background-color: #45a049;
+    }
+    #success-message {
+        max-width: 400px;
+        margin: 20px auto;
+        padding: 15px;
+        border: 1px solid #4CAF50;
+        background-color: #e8f5e9;
+        color: #388e3c;
+        text-align: center;
+        border-radius: 5px;
+    }
+    /* Updated Design for Rosina Rey Psychology */
+    body {
+        font-family: 'Helvetica Neue', sans-serif;
+        background-color: #ffffff;
+        color: #333;
+    }
+    h1 {
+        text-align: center;
+        margin-top: 30px;
+        font-size: 2.2em;
+        color: #4CAF50;
+    }
+    p {
+        text-align: center;
+        font-size: 1.2em;
+    }
+    #calendar {
+        max-width: 400px;
+        margin: 20px auto;
+    }
+    #time-slots {
+        max-width: 400px;
+        margin: 10px auto;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 10px;
+    }
+    button.time-slot {
+        padding: 10px;
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+    button.time-slot:hover {
+        background-color: #45a049;
+    }
+    button.time-slot.disabled {
+        background-color: #ccc;
+        cursor: not-allowed;
+    }
+    button.time-slot.selected {
+        background-color: #388e3c;
+    }
+    #confirm-button {
+        display: block;
+        margin: 20px auto;
+        padding: 10px 20px;
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+        transition: background-color 0.3s ease;
+    }
+    #confirm-button:hover {
+        background-color: #45a049;
+    }
+    #form-container {
+        max-width: 400px;
+        margin: 20px auto;
+        display: grid;
+        gap: 10px;
+    }
+    #form-container input {
+        padding: 10px;
+        font-size: 1em;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+    #form-container button {
+        padding: 10px;
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+    #form-container button:hover {
+        background-color: #45a049;
+    }
+    #success-message {
+        max-width: 400px;
+        margin: 20px auto;
+        padding: 15px;
+        border: 1px solid #4CAF50;
+        background-color: #e8f5e9;
+        color: #388e3c;
+        text-align: center;
+        border-radius: 5px;
+    }
+</style>
+
+<!-- JavaScript for Booking Logic -->
 <script>
-    const bookedSlots = [];
+    const uruguayOffset = -3;
+    const localOffset = new Date().getTimezoneOffset() / 60;
+    let bookedSlots = [];
+
+    // Fetch existing booked slots from the backend (JSON file simulation)
+    fetch('booked_slots.json')
+        .then(response => response.json())
+        .then(data => {
+            bookedSlots = data.bookedSlots;
+        })
+        .catch(error => console.error('Error fetching booked slots:', error));
+
+    // Initialize the calendar
     let selectedDate = null;
     let selectedTime = null;
 
@@ -41,15 +341,13 @@
         }
     });
 
+    // Render available time slots
     function renderTimeSlots(date) {
         const timeSlotsContainer = document.getElementById("time-slots");
         timeSlotsContainer.innerHTML = "";
-        
-        const timezoneOffset = new Date().getTimezoneOffset() / 60;
-        const uruguayOffset = -3;
 
         for (let hour = 8; hour <= 20; hour++) {
-            const localHour = hour + (timezoneOffset - uruguayOffset);
+            const localHour = hour + (localOffset - uruguayOffset);
             const timeString = `${date} ${localHour.toString().padStart(2, '0')}:00`;
             const button = document.createElement("button");
             button.textContent = `${localHour.toString().padStart(2, '0')}:00`;
@@ -72,12 +370,33 @@
     }
 
     // Booking confirmation
-    document.getElementById('confirm-button').addEventListener('click', () => {
+    document.getElementById('booking-form').addEventListener('submit', (e) => {
+        e.preventDefault();
+
+        const firstName = document.getElementById('first-name').value;
+        const lastName = document.getElementById('last-name').value;
+        const email = document.getElementById('email').value;
+        const phone = document.getElementById('phone').value;
+
         if (selectedDate && selectedTime) {
             bookedSlots.push(selectedTime);
 
+            // Send to JSON (simulating backend storage)
+            fetch('/save_booking', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    date: selectedTime
+                })
+            })
+            .then(response => response.json())
+            .then(data => console.log(data))
+            .catch(error => console.error('Error:', error));
+
             document.getElementById('success-message').style.display = 'block';
-            document.getElementById('confirm-button').style.display = 'none';
+            document.getElementById('form-container').style.display = 'none';
 
             // Send Email Notification
             fetch('https://formsubmit.co/ajax/rosinareyasis@gmail.com', {
@@ -87,7 +406,11 @@
                 },
                 body: JSON.stringify({
                     Date: selectedTime,
-                    Message: 'New appointment booked at: ' + selectedTime
+                    FirstName: firstName,
+                    LastName: lastName,
+                    Email: email,
+                    Phone: phone,
+                    Message: `Nueva cita reservada para ${selectedTime}`
                 })
             })
             .then(response => response.json())
