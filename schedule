@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agendar una Cita</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/l10n/es.js"></script>
+</head>
+<body>
+
+<h1>Agendar una Cita</h1>
+<p>Selecciona una fecha y hora para tu cita:</p>
+
+<!-- Calendar section -->
+<div id="calendar"></div>
+
+<!-- Custom Styles -->
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f9f9f9;
+        color: #333;
+    }
+    h1 {
+        text-align: center;
+        margin-top: 30px;
+    }
+    p {
+        text-align: center;
+    }
+    #calendar {
+        max-width: 400px;
+        margin: 20px auto;
+    }
+    button.flatpickr-confirm {
+        display: block;
+        margin: 10px auto;
+        padding: 10px 20px;
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+</style>
+
+<!-- Calendar Initialization Script -->
+<script>
+    // Initialize the calendar in Spanish
+    flatpickr("#calendar", {
+        locale: "es",              // Language is set to Spanish
+        enableTime: true,          // Enables time selection
+        dateFormat: "Y-m-d H:i",   // Date format: Year-Month-Day Hour:Minute
+        minDate: "today",          // Blocks past dates
+        onChange: function(selectedDates, dateStr, instance) {
+            console.log("Selected date and time:", dateStr); // Logs the selection to the console
+        }
+    });
+</script>
+
+</body>
+</html>
