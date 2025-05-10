@@ -65,7 +65,7 @@ const translations = {
     "index_key21": "✓ Terapia para Padres con Hijos Adictos",
     "index_key22": "✓ Talleres de Estimulación Cognitiva para adultos",
     "index_key23": "✓Orientación Vocacional y Profesional",
-    "index_key24": "No se trata de lo que nos sucede, sino de cómo respondemos a lo que nos sucede.– Epicteto"
+    "index_key24": "No se trata de lo que nos sucede, sino de cómo respondemos a lo que nos sucede.– Epicteto",
       // ✅ Google Review Section
     "review_heading": "Comparte tu experiencia",
     "review_text": "¡Aprecio tus comentarios! Por favor, deja una reseña en Google.",
@@ -136,7 +136,7 @@ const translations = {
     "index_key21": "✓ Therapy for Parents of Addicted Children",
     "index_key22": "✓ Cognitive Stimulation Workshops for Adults",
     "index_key23": "✓ Vocational and Career Guidance",
-    "index_key24": "It's not what happens to us, but how we respond to what happens to us. – Epictetus"
+    "index_key24": "It's not what happens to us, but how we respond to what happens to us. – Epictetus",
   // ✅ Google Review Section
     "review_heading": "Share Your Experience",
     "review_text": "I appreciate your feedback! Please leave a review on Google.",
