@@ -146,12 +146,22 @@ function translate(lang) {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-  const defaultLang = navigator.language.startsWith("es") ? "es" : "en";
-  translate(defaultLang);
+  // Get the saved language from localStorage or use default
+  const savedLang = localStorage.getItem("preferredLanguage") || 
+                    (navigator.language.startsWith("es") ? "es" : "en");
+  translate(savedLang);
 
+  // Flag button event listeners
   const esFlag = document.getElementById("lang-es");
   const enFlag = document.getElementById("lang-en");
 
-  if (esFlag) esFlag.addEventListener("click", () => translate("es"));
-  if (enFlag) enFlag.addEventListener("click", () => translate("en"));
+  if (esFlag) esFlag.addEventListener("click", () => {
+    translate("es");
+    localStorage.setItem("preferredLanguage", "es");
+  });
+
+  if (enFlag) enFlag.addEventListener("click", () => {
+    translate("en");
+    localStorage.setItem("preferredLanguage", "en");
+  });
 });
