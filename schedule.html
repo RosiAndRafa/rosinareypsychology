@@ -5,8 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Agendar una Cita - Rosina Rey Psicología</title>
 
-    <!-- Styles and Flatpickr -->
-    <link rel="stylesheet" href="css/styles.css">
+    <!-- Flatpickr (Self-Contained) -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
     <script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/l10n/es.js"></script>
@@ -41,7 +40,7 @@
 <button id="confirm-button" style="display: none;">Continuar</button>
 
 <!-- Form Structure -->
-<div id="form-container">
+<div id="form-container" style="display: none;">
     <h2>Introduce tus datos:</h2>
     <form id="booking-form">
         <input type="text" id="first-name" placeholder="Nombre" required>
@@ -52,7 +51,79 @@
     </form>
 </div>
 
-<!-- JavaScript Logic -->
+<!-- Styles (Self-Contained) -->
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f9f9f9;
+        color: #333;
+    }
+    h1 {
+        text-align: center;
+        margin-top: 30px;
+        color: #4CAF50;
+    }
+    p {
+        text-align: center;
+    }
+    #calendar {
+        max-width: 400px;
+        margin: 20px auto;
+    }
+    #time-slots {
+        max-width: 400px;
+        margin: 10px auto;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 10px;
+    }
+    button.time-slot {
+        padding: 10px;
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        margin-bottom: 5px;
+    }
+    button.time-slot.disabled {
+        background-color: #ccc;
+        cursor: not-allowed;
+    }
+    #confirm-button {
+        display: block;
+        margin: 20px auto;
+        padding: 10px 20px;
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+    }
+    #form-container {
+        max-width: 400px;
+        margin: 20px auto;
+    }
+    #form-container input {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 10px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+    }
+    #form-container button {
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        padding: 10px;
+        width: 100%;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+</style>
+
+<!-- JavaScript Logic (Self-Contained) -->
 <script>
     window.addEventListener('DOMContentLoaded', (event) => {
         const uruguayOffset = -3;
@@ -96,33 +167,6 @@
 
             timeSlotsContainer.appendChild(fragment);
         }
-
-        // Form submission logic
-        document.getElementById('booking-form').addEventListener('submit', (e) => {
-            e.preventDefault();
-            const firstName = document.getElementById('first-name').value;
-            const lastName = document.getElementById('last-name').value;
-            const email = document.getElementById('email').value;
-            const phone = document.getElementById('phone').value;
-
-            fetch('https://formsubmit.co/ajax/rosinareyasis@gmail.com', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({
-                    Date: selectedTime,
-                    FirstName: firstName,
-                    LastName: lastName,
-                    Email: email,
-                    Phone: phone,
-                    Message: `Nueva cita reservada para ${selectedTime}`
-                })
-            })
-            .then(response => response.json())
-            .then(data => alert('¡Reserva realizada con éxito!'))
-            .catch(error => console.error('Error:', error));
-        });
     });
 </script>
 
