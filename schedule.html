@@ -11,10 +11,16 @@
 <body>
 
 <h1>Agendar una Cita</h1>
-<p>Selecciona una fecha y hora para tu cita:</p>
+<p>Selecciona una fecha y hora para tu cita (en tu zona horaria):</p>
 
-<!-- Calendar section -->
+<!-- Calendar Booking -->
 <div id="calendar"></div>
+<button id="confirm-button">Confirmar Reserva</button>
+
+<!-- Success Message -->
+<div id="success-message" style="display: none;">
+    <p>¡Tu cita ha sido reservada con éxito!</p>
+</div>
 
 <!-- Custom Styles -->
 <style>
@@ -34,7 +40,7 @@
         max-width: 400px;
         margin: 20px auto;
     }
-    button.flatpickr-confirm {
+    #confirm-button {
         display: block;
         margin: 10px auto;
         padding: 10px 20px;
@@ -43,19 +49,68 @@
         border: none;
         border-radius: 5px;
         cursor: pointer;
+        font-size: 16px;
+    }
+    #confirm-button:hover {
+        background-color: #45a049;
+    }
+    #success-message {
+        max-width: 400px;
+        margin: 20px auto;
+        padding: 15px;
+        border: 1px solid #4CAF50;
+        background-color: #e8f5e9;
+        color: #388e3c;
+        text-align: center;
+        border-radius: 5px;
     }
 </style>
 
-<!-- Calendar Initialization Script -->
+<!-- Calendar and Booking Logic -->
 <script>
-    // Initialize the calendar in Spanish
+    // Initialize the calendar with Spanish localization and available hours
+    let selectedDate = null;
+    
     flatpickr("#calendar", {
-        locale: "es",              // Language is set to Spanish
-        enableTime: true,          // Enables time selection
-        dateFormat: "Y-m-d H:i",   // Date format: Year-Month-Day Hour:Minute
-        minDate: "today",          // Blocks past dates
-        onChange: function(selectedDates, dateStr, instance) {
-            console.log("Selected date and time:", dateStr); // Logs the selection to the console
+        locale: "es",
+        enableTime: true,
+        dateFormat: "Y-m-d H:i",
+        minDate: "today",
+        minTime: "08:00",
+        maxTime: "20:00",
+        time_24hr: true,  // Display in 24-hour format
+        onChange: function(selectedDates, dateStr) {
+            // Convert to user's timezone
+            const localTime = new Date(selectedDates[0]).toLocaleString("es-ES", {
+                timeZone: Intl.DateTimeFormat().resolvedOptions().timeZone
+            });
+            selectedDate = localTime;
+        }
+    });
+
+    // Booking confirmation
+    document.getElementById('confirm-button').addEventListener('click', () => {
+        if (selectedDate) {
+            document.getElementById('success-message').style.display = 'block';
+            
+            // Sending the email
+            fetch('https://formsubmit.co/ajax/rosinareyasis@gmail.com', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    Date: selectedDate,
+                    Message: 'New appointment booked at: ' + selectedDate
+                })
+            })
+            .then(response => response.json())
+            .then(data => console.log(data))
+            .catch(error => console.error('Error:', error));
+
+            console.log("Appointment booked for:", selectedDate);
+        } else {
+            alert("Por favor, selecciona una fecha y hora.");
         }
     });
 </script>
