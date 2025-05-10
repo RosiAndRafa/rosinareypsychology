@@ -165,5 +165,162 @@
     });
 </script>
 
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f9f9f9;
+        color: #333;
+    }
+    h1 {
+        text-align: center;
+        margin-top: 30px;
+        color: #4CAF50;
+    }
+    p {
+        text-align: center;
+    }
+    #calendar {
+        max-width: 400px;
+        margin: 20px auto;
+    }
+    #time-slots {
+        max-width: 400px;
+        margin: 10px auto;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 10px;
+    }
+    button.time-slot {
+        padding: 10px;
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        margin-bottom: 5px;
+    }
+    button.time-slot.disabled {
+        background-color: #ccc;
+        cursor: not-allowed;
+    }
+    #confirm-button {
+        display: block;
+        margin: 20px auto;
+        padding: 10px 20px;
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+    }
+    #form-container {
+        max-width: 400px;
+        margin: 20px auto;
+        display: none;
+    }
+    #form-container input {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 10px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+    }
+    #form-container button {
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        padding: 10px;
+        width: 100%;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+</style>
+
+<!-- Form Structure -->
+<div id="form-container">
+    <h2>Introduce tus datos:</h2>
+    <form id="booking-form">
+        <input type="text" id="first-name" placeholder="Nombre" required>
+        <input type="text" id="last-name" placeholder="Apellido" required>
+        <input type="email" id="email" placeholder="Correo Electrónico" required>
+        <input type="tel" id="phone" placeholder="Teléfono" required>
+        <button type="submit">Confirmar Reserva</button>
+    </form>
+</div>
+
+<script>
+    window.addEventListener('DOMContentLoaded', (event) => {
+        const uruguayOffset = -3;
+        const localOffset = new Date().getTimezoneOffset() / 60;
+        let selectedDate = null;
+        let selectedTime = null;
+
+        // Initialize Flatpickr calendar
+        flatpickr("#calendar", {
+            locale: "es",
+            minDate: "today",
+            onChange: function(selectedDates, dateStr) {
+                selectedDate = dateStr;
+                renderTimeSlots(dateStr);
+            }
+        });
+
+        // Render available time slots
+        function renderTimeSlots(date) {
+            const timeSlotsContainer = document.getElementById("time-slots");
+            timeSlotsContainer.innerHTML = "";
+
+            const fragment = document.createDocumentFragment();
+
+            for (let hour = 8; hour <= 20; hour++) {
+                const localHour = hour + (localOffset - uruguayOffset);
+                const timeString = `${date} ${localHour.toString().padStart(2, '0')}:00`;
+                const button = document.createElement("button");
+                button.textContent = `${localHour.toString().padStart(2, '0')}:00`;
+                button.classList.add("time-slot");
+
+                button.addEventListener("click", () => {
+                    document.querySelectorAll(".time-slot").forEach(btn => btn.classList.remove("selected"));
+                    button.classList.add("selected");
+                    selectedTime = timeString;
+                    document.getElementById("form-container").style.display = "block";
+                });
+
+                fragment.appendChild(button);
+            }
+
+            timeSlotsContainer.appendChild(fragment);
+        }
+
+        // Form submission logic
+        document.getElementById('booking-form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            const firstName = document.getElementById('first-name').value;
+            const lastName = document.getElementById('last-name').value;
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+
+            fetch('https://formsubmit.co/ajax/rosinareyasis@gmail.com', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    Date: selectedTime,
+                    FirstName: firstName,
+                    LastName: lastName,
+                    Email: email,
+                    Phone: phone,
+                    Message: `Nueva cita reservada para ${selectedTime}`
+                })
+            })
+            .then(response => response.json())
+            .then(data => alert('¡Reserva realizada con éxito!'))
+            .catch(error => console.error('Error:', error));
+        });
+    });
+</script>
+
 </body>
 </html>
