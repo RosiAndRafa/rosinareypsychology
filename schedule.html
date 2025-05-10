@@ -129,51 +129,6 @@
         let selectedDate = null;
         let selectedTime = null;
 
-        // Initialize Flatpickr calendar
-        flatpickr("#calendar", {
-            locale: "es",
-            minDate: "today",
-            onChange: function(selectedDates, dateStr) {
-                selectedDate = dateStr;
-                renderTimeSlots(dateStr);
-            }
-        });
-
-        // Render available time slots
-        function renderTimeSlots(date) {
-            const timeSlotsContainer = document.getElementById("time-slots");
-            timeSlotsContainer.innerHTML = "";
-
-            const fragment = document.createDocumentFragment();
-
-            for (let hour = 8; hour <= 20; hour++) {
-                const localHour = hour + (localOffset - uruguayOffset);
-                const timeString = `${date} ${localHour.toString().padStart(2, '0')}:00`;
-                const button = document.createElement("button");
-                button.textContent = `${localHour.toString().padStart(2, '0')}:00`;
-                button.classList.add("time-slot");
-
-                button.addEventListener("click", () => {
-                    document.querySelectorAll(".time-slot").forEach(btn => btn.classList.remove("selected"));
-                    button.classList.add("selected");
-                    selectedTime = timeString;
-                    document.getElementById("form-container").style.display = "block";
-                });
-
-                fragment.appendChild(button);
-            }
-
-            timeSlotsContainer.appendChild(fragment);
-        }
-    });
-</script>
-<script>
-    window.addEventListener('DOMContentLoaded', (event) => {
-        const uruguayOffset = -3;
-        const localOffset = new Date().getTimezoneOffset() / 60;
-        let selectedDate = null;
-        let selectedTime = null;
-
         // ✅ Initialize Flatpickr calendar
         flatpickr("#calendar", {
             locale: "es",
