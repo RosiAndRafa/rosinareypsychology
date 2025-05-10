@@ -151,11 +151,13 @@ function translate(lang) {
   });
 }
 
-// On page load, detect saved language or default to Spanish
+// On page load, detect the saved language or default to Spanish
 document.addEventListener("DOMContentLoaded", () => {
+  // Always read the saved language from localStorage
   const savedLanguage = localStorage.getItem("selectedLanguage") || "es";
   translate(savedLanguage);
 
+  // Set event listeners for the flags
   const esFlag = document.getElementById("lang-es");
   const enFlag = document.getElementById("lang-en");
 
