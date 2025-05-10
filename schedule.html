@@ -3,13 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Agendar una Cita</title>
+    <title>Agendar una Cita - Rosina Rey Psicología</title>
+    <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
     <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
     <script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/l10n/es.js"></script>
 </head>
 <body>
 
+<!-- Language Switcher -->
+<div style="position: fixed; top: 10px; right: 10px; z-index: 999;">
+    <img alt="Español" id="lang-es" src="images/es.png" style="cursor:pointer; width: 24px; margin-right: 6px;">
+    <img alt="English" id="lang-en" src="images/us.png" style="cursor:pointer; width: 24px;">
+</div>
+
+<!-- Navigation -->
+<nav>
+    <div class="nav-center">
+        <a href="index.html">Inicio</a>
+        <a href="about.html">Sobre mí</a>
+        <a href="contact.html">Contacto</a>
+    </div>
+</nav>
+
+<!-- Main Content -->
 <h1>Agendar una Cita</h1>
 <p>Selecciona una fecha:</p>
 
@@ -21,22 +38,31 @@
 
 <button id="confirm-button" style="display: none;">Continuar</button>
 
-<!-- Form for User Details -->
-<div id="form-container" style="display: none;">
-    <h2>Introduce tus datos:</h2>
-    <form id="booking-form">
-        <input type="text" id="first-name" placeholder="Nombre" required>
-        <input type="text" id="last-name" placeholder="Apellido" required>
-        <input type="email" id="email" placeholder="Correo Electrónico" required>
-        <input type="tel" id="phone" placeholder="Teléfono" required>
-        <button type="submit">Confirmar Reserva</button>
-    </form>
-</div>
-
 <!-- Success Message -->
 <div id="success-message" style="display: none;">
-    <p>¡Tu cita ha sido reservada con éxito! Revisa tu correo para más detalles.</p>
+    <p>¡Tu cita ha sido reservada con éxito!</p>
 </div>
+
+<!-- Footer -->
+<footer class="site-footer">
+    <div class="footer-content">
+        <div style="text-align: center; margin-top: 12px;">
+            <a href="https://www.tiktok.com/@rosinareyasis?_t=ZN-8w4TeZscWYA&amp;_r=1" target="_blank">
+                <img alt="TikTok" src="images/tiktok.png" style="width:48px; height:48px; margin: 0 8px;">
+            </a>
+            <a href="https://www.instagram.com/psicologarosinarey/?igsh=cXh6MjMzajlibmRk#" target="_blank">
+                <img alt="Instagram" src="images/instagram.png" style="width:48px; height:48px; margin: 0 8px;">
+            </a>
+        </div>
+        <div class="footer-links">
+            <a href="#">Privacidad</a>
+            <a href="#">Términos</a>
+            <a href="#">Accesibilidad</a>
+            <a href="#">No vender ni compartir mi información</a>
+        </div>
+        <p>© 2025 Rosina Rey Psicología. Todos los derechos reservados.</p>
+    </div>
+</footer>
 
 <!-- Styles -->
 <style>
@@ -125,38 +151,6 @@
             timeSlotsContainer.appendChild(button);
         }
     }
-
-    // Continue to Form
-    document.getElementById('confirm-button').addEventListener('click', () => {
-        document.getElementById('form-container').style.display = 'block';
-    });
-
-    // Submit the form
-    document.getElementById('booking-form').addEventListener('submit', (e) => {
-        e.preventDefault();
-
-        // Send email with all information
-        fetch('https://formsubmit.co/ajax/rosinareyasis@gmail.com', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-                Date: selectedTime,
-                FirstName: document.getElementById('first-name').value,
-                LastName: document.getElementById('last-name').value,
-                Email: document.getElementById('email').value,
-                Phone: document.getElementById('phone').value,
-                Message: `Nueva cita reservada para ${selectedTime}`
-            })
-        })
-        .then(response => response.json())
-        .then(data => {
-            console.log(data);
-            document.getElementById('success-message').style.display = 'block';
-        })
-        .catch(error => console.error('Error:', error));
-    });
 </script>
 
 </body>
