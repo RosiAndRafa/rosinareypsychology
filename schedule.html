@@ -4,18 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Agendar una Cita</title>
-    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
     <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
     <script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/l10n/es.js"></script>
 </head>
 <body>
 
 <h1>Agendar una Cita</h1>
-<p>Selecciona una fecha y hora para tu cita (en tu zona horaria):</p>
+<p>Selecciona una fecha:</p>
 
 <!-- Calendar Booking -->
 <div id="calendar"></div>
-<button id="confirm-button">Confirmar Reserva</button>
+
+<p>Selecciona una hora:</p>
+<div id="time-slots"></div>
+
+<button id="confirm-button" style="display: none;">Confirmar Reserva</button>
 
 <!-- Success Message -->
 <div id="success-message" style="display: none;">
@@ -40,9 +44,31 @@
         max-width: 400px;
         margin: 20px auto;
     }
+    #time-slots {
+        max-width: 400px;
+        margin: 10px auto;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 10px;
+    }
+    button.time-slot {
+        padding: 10px;
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    button.time-slot:hover {
+        background-color: #45a049;
+    }
+    button.time-slot.disabled {
+        background-color: #ccc;
+        cursor: not-allowed;
+    }
     #confirm-button {
         display: block;
-        margin: 10px auto;
+        margin: 20px auto;
         padding: 10px 20px;
         background-color: #4CAF50;
         color: white;
@@ -50,9 +76,6 @@
         border-radius: 5px;
         cursor: pointer;
         font-size: 16px;
-    }
-    #confirm-button:hover {
-        background-color: #45a049;
     }
     #success-message {
         max-width: 400px;
@@ -68,47 +91,75 @@
 
 <!-- Calendar and Booking Logic -->
 <script>
-    // Initialize the calendar with Spanish localization and available hours
+    const bookedSlots = [];  // This should be fetched from a database in the future
     let selectedDate = null;
-    
+    let selectedTime = null;
+
+    // Initialize the calendar
     flatpickr("#calendar", {
         locale: "es",
-        enableTime: true,
-        dateFormat: "Y-m-d H:i",
         minDate: "today",
-        minTime: "08:00",
-        maxTime: "20:00",
-        time_24hr: true,  // Display in 24-hour format
         onChange: function(selectedDates, dateStr) {
-            // Convert to user's timezone
-            const localTime = new Date(selectedDates[0]).toLocaleString("es-ES", {
-                timeZone: Intl.DateTimeFormat().resolvedOptions().timeZone
-            });
-            selectedDate = localTime;
+            selectedDate = dateStr;
+            renderTimeSlots(dateStr);
         }
     });
 
+    // Render available time slots
+    function renderTimeSlots(date) {
+        const timeSlotsContainer = document.getElementById("time-slots");
+        timeSlotsContainer.innerHTML = "";
+        
+        const timezoneOffset = new Date().getTimezoneOffset() / 60;
+        const uruguayOffset = -3;
+
+        for (let hour = 8; hour <= 20; hour++) {
+            const localHour = hour + (timezoneOffset - uruguayOffset);
+            const timeString = `${date} ${localHour.toString().padStart(2, '0')}:00`;
+            const button = document.createElement("button");
+            button.textContent = `${localHour.toString().padStart(2, '0')}:00`;
+            button.classList.add("time-slot");
+
+            if (bookedSlots.includes(timeString)) {
+                button.classList.add("disabled");
+                button.disabled = true;
+            }
+
+            button.addEventListener("click", () => {
+                document.querySelectorAll(".time-slot").forEach(btn => btn.classList.remove("selected"));
+                button.classList.add("selected");
+                selectedTime = timeString;
+                document.getElementById("confirm-button").style.display = "block";
+            });
+
+            timeSlotsContainer.appendChild(button);
+        }
+    }
+
     // Booking confirmation
     document.getElementById('confirm-button').addEventListener('click', () => {
-        if (selectedDate) {
+        if (selectedDate && selectedTime) {
+            bookedSlots.push(selectedTime);
+
             document.getElementById('success-message').style.display = 'block';
-            
-            // Sending the email
+            document.getElementById('confirm-button').style.display = 'none';
+
+            // Send Email Notification
             fetch('https://formsubmit.co/ajax/rosinareyasis@gmail.com', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
                 },
                 body: JSON.stringify({
-                    Date: selectedDate,
-                    Message: 'New appointment booked at: ' + selectedDate
+                    Date: selectedTime,
+                    Message: 'New appointment booked at: ' + selectedTime
                 })
             })
             .then(response => response.json())
             .then(data => console.log(data))
             .catch(error => console.error('Error:', error));
 
-            console.log("Appointment booked for:", selectedDate);
+            console.log("Appointment booked for:", selectedTime);
         } else {
             alert("Por favor, selecciona una fecha y hora.");
         }
