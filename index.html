@@ -1,97 +1,155 @@
 <!DOCTYPE html>
-
 <html lang="es">
 <head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Rosina Rey Psicología - Inicio</title>
-<meta content="Psicóloga Rosina Rey. Terapia individual, manejo de ansiedad y apoyo emocional en Uruguay. Agenda tu cita." name="description"/>
-<meta content="Psicóloga, Terapia, Salud Mental, Rosina Rey, Psicología Uruguay" name="keywords"/>
-<meta content="Rosina Rey Psicología - Inicio" property="og:title"/>
-<meta content="Terapia individual, manejo de ansiedad y apoyo emocional en Uruguay." property="og:description"/>
-<meta content="images/rosina-rey.jpg" property="og:image"/>
-<meta content="https://rosinareypsychology.com" property="og:url"/>
-<meta content="website" property="og:type"/>
-<meta content="summary_large_image" name="twitter:card"/>
-<meta content="Rosina Rey Psicología" name="twitter:title"/>
-<meta content="Terapia individual, manejo de ansiedad y apoyo emocional en Uruguay." name="twitter:description"/>
-<meta content="images/rosina-rey.jpg" name="twitter:image"/>
-<link href="favicon.ico" rel="icon" type="image/x-icon"/>
-<link href="css/styles.css?v=3" rel="stylesheet"/>
-<script defer="" src="js/lang.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agendar una Cita - Rosina Rey Psicología</title>
+
+    <!-- ✅ Flatpickr CSS and JS - Loaded from CDN -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/l10n/es.js"></script>
 </head>
+
 <body>
-<div style="position: fixed; top: 10px; right: 10px; z-index: 999;">
-<img alt="Español" id="lang-es" src="images/es.png" style="cursor:pointer; width: 24px; margin-right: 6px;"/>
-<img alt="English" id="lang-en" src="images/us.png" style="cursor:pointer; width: 24px;"/>
+
+<!-- Main Content -->
+<h1>Agendar una Cita</h1>
+<p>Selecciona una fecha:</p>
+
+<!-- Calendar Booking -->
+<div id="calendar"></div>
+
+<p>Selecciona una hora:</p>
+<div id="time-slots"></div>
+
+<!-- Form Structure -->
+<div id="form-container" style="display: none;">
+    <h2>Introduce tus datos:</h2>
+    <form id="booking-form">
+        <input type="text" id="first-name" placeholder="Nombre" required>
+        <input type="text" id="last-name" placeholder="Apellido" required>
+        <input type="email" id="email" placeholder="Correo Electrónico" required>
+        <input type="tel" id="phone" placeholder="Teléfono" required>
+        <button type="submit">Confirmar Reserva</button>
+    </form>
 </div>
 
-<nav>
-<div class="nav-center">
-<a data-i18n="home" data-translate="index_key1" href="index.html">Inicio</a>
-<a data-i18n="about" data-translate="index_key2" href="about.html">Sobre mí</a>
-<a data-i18n="contact" data-translate="index_key3" href="contact.html">Contacto</a>
-</div>
-<div class="lang-switcher">
+<!-- ✅ Self-contained JavaScript -->
+<script>
+    window.addEventListener('DOMContentLoaded', (event) => {
+        const uruguayOffset = -3;
+        const localOffset = new Date().getTimezoneOffset() / 60;
+        let selectedDate = null;
+        let selectedTime = null;
 
+        // ✅ Initialize Flatpickr calendar
+        flatpickr("#calendar", {
+            locale: "es",
+            minDate: "today",
+            dateFormat: "Y-m-d",
+            onReady: function() {
+                console.log("Flatpickr is ready!");
+            },
+            onChange: function(selectedDates, dateStr) {
+                selectedDate = dateStr;
+                renderTimeSlots(dateStr);
+            }
+        });
 
-</div>
-</nav>
-<div class="hero fade-in">
-<h1 data-i18n="welcome" data-translate="index_key4">Bienvenido/a a tu espacio de terapia online</h1>
-<p data-translate="index_key5">Trabajo desde un enfoque cognitivo-conductual, de forma online, adaptando el proceso terapéutico a tus tiempos y necesidades.</p>
-<blockquote data-translate="index_key24"></blockquote>
-<p data-translate="index_key6">Si estás listo/a para comenzar este proceso de cambio y crecimiento, no dudes en contactarme. Juntos podemos trabajar hacia un bienestar más pleno y una vida más equilibrada.</p>
-<a class="button" data-i18n="book" data-translate="index_key7" href="schedule.html">
-<button class="appointment-button">
-        Agendar una Cita
-    </button>
-</a>
-</div>
-<div class="container fade-in">
-<h2 data-i18n="servicesTitle" data-translate="index_key8">Servicios</h2>
-<ul>
-<li data-translate="index_key19">✓ Terapia Online (Cognitivo-Conductual)</li>
-<li data-translate="index_key20">✓ Atención a Pacientes con Adicciones</li>
-<li data-translate="index_key21">✓ Terapia para Padres con Hijos Adictos</li>
-<li data-translate="index_key22">✓ Talleres de Estimulación Cognitiva para adultos</li>
-<li data-translate="index_key23">✓Orientación Vocacional y Profesional</li>
-<div class="contact-info">
-  <p>Rosina Rey</p>
-  <p>
-    <a href="mailto:Rosina.rey.asis@gmail.com">Rosina.rey.asis@gmail.com</a>
-  </p>
-  <p>
-    <a href="https://wa.me/59898203870" target="_blank">+598 9820 3870</a>
-  </p>
-</div>
-</div>
-<a class="whatsapp-button" href="https://wa.me/59898203870" target="_blank">
-<img alt="WhatsApp" src="images/whatsapp.png" style="height: 32px; margin: 0 6px;"/>
-</a>
-<footer class="site-footer">
-<div class="footer-content">
-<div style="text-align: center; margin-top: 12px;">
-<a href="https://www.tiktok.com/@rosinareyasis?_t=ZN-8w4TeZscWYA&amp;_r=1" target="_blank">
-<img alt="TikTok" src="images/tiktok.png" style="width:48px; height:48px; margin: 0 8px;"/>
-</a>
-<a href="https://www.instagram.com/psicologarosinarey/?igsh=cXh6MjMzajlibmRk#" target="_blank">
-<img alt="Instagram" src="images/instagram.png" style="width:48px; height:48px; margin: 0 8px;"/>
-</a>
-</div>
-<div class="footer-links">
-<a data-i18n="privacy" data-translate="index_key14" href="#">Privacidad</a>
-<a data-i18n="terms" data-translate="index_key15" href="#">Términos</a>
-<a data-i18n="accessibility" data-translate="index_key16" href="#">Accesibilidad</a>
-<a data-i18n="donotsell" data-translate="index_key17" href="#">No vender ni compartir mi información</a>
-</div>
-<div class="footer-social">
-</div>
-<p>© 2025 Rosina Rey Psicología. <span data-i18n="rights" data-translate="index_key18">Todos los derechos reservados.</span></p>
-</div>
-</footer>
+        // ✅ Render available time slots
+        function renderTimeSlots(date) {
+            const timeSlotsContainer = document.getElementById("time-slots");
+            timeSlotsContainer.innerHTML = "";
+
+            const fragment = document.createDocumentFragment();
+
+            for (let hour = 8; hour <= 20; hour++) {
+                const localHour = hour + (localOffset - uruguayOffset);
+                const timeString = `${date} ${localHour.toString().padStart(2, '0')}:00`;
+                const button = document.createElement("button");
+                button.textContent = `${localHour.toString().padStart(2, '0')}:00`;
+                button.classList.add("time-slot");
+
+                button.addEventListener("click", () => {
+                    document.querySelectorAll(".time-slot").forEach(btn => btn.classList.remove("selected"));
+                    button.classList.add("selected");
+                    selectedTime = timeString;
+                    document.getElementById("form-container").style.display = "block";
+                });
+
+                fragment.appendChild(button);
+            }
+
+            timeSlotsContainer.appendChild(fragment);
+        }
+    });
+</script>
+
+<!-- ✅ CSS Styling -->
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f9f9f9;
+        color: #333;
+    }
+    h1 {
+        text-align: center;
+        margin-top: 30px;
+        color: #4CAF50;
+    }
+    p {
+        text-align: center;
+    }
+    #calendar {
+        max-width: 400px;
+        margin: 20px auto;
+    }
+    #time-slots {
+        max-width: 400px;
+        margin: 10px auto;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 10px;
+    }
+    button.time-slot {
+        padding: 10px;
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        margin-bottom: 5px;
+    }
+    button.time-slot.disabled {
+        background-color: #ccc;
+        cursor: not-allowed;
+    }
+    #form-container {
+        max-width: 400px;
+        margin: 20px auto;
+    }
+    #form-container input {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 10px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+    }
+    #form-container button {
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        padding: 10px;
+        width: 100%;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+</style>
+
 </body>
 </html>
+
 <!-- Google Review Button Section -->
 <div class="google-review-section">
     <h2 data-translate="review_heading">Comparte tu experiencia</h2>
