@@ -130,7 +130,9 @@
             minDate: "today",
             onChange: function(selectedDates, dateStr) {
                 selectedDate = dateStr;
-                renderTimeSlots(dateStr);
+                window.requestAnimationFrame(() => {
+                    renderTimeSlots(dateStr);
+                });
             }
         });
 
@@ -138,6 +140,8 @@
         function renderTimeSlots(date) {
             const timeSlotsContainer = document.getElementById("time-slots");
             timeSlotsContainer.innerHTML = "";
+
+            const fragment = document.createDocumentFragment();
 
             for (let hour = 8; hour <= 20; hour++) {
                 const localHour = hour + (localOffset - uruguayOffset);
@@ -153,8 +157,10 @@
                     document.getElementById("confirm-button").style.display = "block";
                 });
 
-                timeSlotsContainer.appendChild(button);
+                fragment.appendChild(button);
             }
+
+            timeSlotsContainer.appendChild(fragment);
         }
     });
 </script>
