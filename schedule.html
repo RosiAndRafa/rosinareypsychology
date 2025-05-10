@@ -26,76 +26,12 @@
     <p>¡Tu cita ha sido reservada con éxito!</p>
 </div>
 
-<!-- Custom Styles -->
-<style>
-    body {
-        font-family: Arial, sans-serif;
-        background-color: #f9f9f9;
-        color: #333;
-    }
-    h1 {
-        text-align: center;
-        margin-top: 30px;
-    }
-    p {
-        text-align: center;
-    }
-    #calendar {
-        max-width: 400px;
-        margin: 20px auto;
-    }
-    #time-slots {
-        max-width: 400px;
-        margin: 10px auto;
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        gap: 10px;
-    }
-    button.time-slot {
-        padding: 10px;
-        background-color: #4CAF50;
-        color: white;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-    }
-    button.time-slot:hover {
-        background-color: #45a049;
-    }
-    button.time-slot.disabled {
-        background-color: #ccc;
-        cursor: not-allowed;
-    }
-    #confirm-button {
-        display: block;
-        margin: 20px auto;
-        padding: 10px 20px;
-        background-color: #4CAF50;
-        color: white;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-        font-size: 16px;
-    }
-    #success-message {
-        max-width: 400px;
-        margin: 20px auto;
-        padding: 15px;
-        border: 1px solid #4CAF50;
-        background-color: #e8f5e9;
-        color: #388e3c;
-        text-align: center;
-        border-radius: 5px;
-    }
-</style>
-
 <!-- Calendar and Booking Logic -->
 <script>
-    const bookedSlots = [];  // This should be fetched from a database in the future
+    const bookedSlots = [];
     let selectedDate = null;
     let selectedTime = null;
 
-    // Initialize the calendar
     flatpickr("#calendar", {
         locale: "es",
         minDate: "today",
@@ -105,7 +41,6 @@
         }
     });
 
-    // Render available time slots
     function renderTimeSlots(date) {
         const timeSlotsContainer = document.getElementById("time-slots");
         timeSlotsContainer.innerHTML = "";
