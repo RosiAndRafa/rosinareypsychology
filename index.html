@@ -88,28 +88,45 @@
 </footer>
 </body>
 </html>
-<!-- Google Review Button -->
-<h2>Share Your Experience</h2>
-<p>We appreciate your feedback! Please leave a review on Google.</p>
+<!-- Google Review Button Section -->
+<div class="google-review-section">
+    <h2>Share Your Experience</h2>
+    <p>We appreciate your feedback! Please leave a review on Google.</p>
 
-<a href="https://search.google.com/local/writereview?placeid=ChIJJ87wnayJn5URF-Kbrr3q2k8" target="_blank">
-    <button style="
-        background-color: #4CAF50;
+    <a href="https://search.google.com/local/writereview?placeid=ChIJJ87wnayJn5URF-Kbrr3q2k8" target="_blank">
+        <button class="google-review-button">
+            ⭐ Leave a Google Review
+        </button>
+    </a>
+</div>
+
+<!-- Styles for the Review Button -->
+<style>
+    .google-review-section {
+        text-align: center;
+        margin-top: 30px;
+        margin-bottom: 50px;
+    }
+
+    .google-review-button {
+        background-color: #4285F4;
         color: white;
         border: none;
-        padding: 10px 20px;
+        padding: 12px 25px;
         text-align: center;
-        font-size: 16px;
-        border-radius: 5px;
+        font-size: 18px;
+        border-radius: 8px;
         cursor: pointer;
-        margin-top: 20px;
-    ">
-        Leave a Google Review
-    </button>
-</a>
-<style>
-    button:hover {
-        background-color: #45a049;
+        transition: background-color 0.3s ease;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .google-review-button:hover {
+        background-color: #357ae8;
+    }
+
+    .google-review-button:active {
+        background-color: #2a65c8;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
     }
 </style>
-
