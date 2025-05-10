@@ -66,11 +66,11 @@ const translations = {
     "index_key22": "✓ Talleres de Estimulación Cognitiva para adultos",
     "index_key23": "✓Orientación Vocacional y Profesional",
     "index_key24": "No se trata de lo que nos sucede, sino de cómo respondemos a lo que nos sucede.– Epicteto"
-     // ✅ Google Review Section
-    "review_heading": "Share Your Experience",
-    "review_text": "I appreciate your feedback! Please leave a review on Google.",
-    "review_button": "⭐ Leave a Google Review"
-  },
+      // ✅ Google Review Section
+    "review_heading": "Comparte tu experiencia",
+    "review_text": "¡Aprecio tus comentarios! Por favor, deja una reseña en Google.",
+    "review_button": "⭐ Dejar una reseña en Google"
+  }
   en: {
     "404_key1": "Home",
     "404_key2": "About Me",
