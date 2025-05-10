@@ -136,12 +136,6 @@ const translations = {
   }
 };
 
-const translations = {
-  es: { /* All translations for Spanish */ },
-  en: { /* All translations for English */ }
-};
-
-// Function to translate the page
 function translate(lang) {
   document.querySelectorAll('[data-translate]').forEach(el => {
     const key = el.getAttribute('data-translate');
@@ -151,23 +145,13 @@ function translate(lang) {
   });
 }
 
-// On page load, detect the saved language or default to Spanish
 document.addEventListener("DOMContentLoaded", () => {
-  // Always read the saved language from localStorage
-  const savedLanguage = localStorage.getItem("selectedLanguage") || "es";
-  translate(savedLanguage);
+  const defaultLang = navigator.language.startsWith("es") ? "es" : "en";
+  translate(defaultLang);
 
-  // Set event listeners for the flags
   const esFlag = document.getElementById("lang-es");
   const enFlag = document.getElementById("lang-en");
 
-  if (esFlag) esFlag.addEventListener("click", () => {
-    localStorage.setItem("selectedLanguage", "es");
-    translate("es");
-  });
-
-  if (enFlag) enFlag.addEventListener("click", () => {
-    localStorage.setItem("selectedLanguage", "en");
-    translate("en");
-  });
+  if (esFlag) esFlag.addEventListener("click", () => translate("es"));
+  if (enFlag) enFlag.addEventListener("click", () => translate("en"));
 });
