@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Agendar una Cita - Rosina Rey</title>
+  <title>Reserva de Cita - Rosina Rey</title>
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -46,27 +46,12 @@
 
 <h1>Agendar una Cita</h1>
 
-<form action="https://formsubmit.co/rosinareyasis@gmail.com" method="POST">
-  <input type="hidden" name="_subject" value="Nueva reserva desde la web">
-  <input type="hidden" name="_captcha" value="false">
-  
-  <label>Nombre</label>
-  <input type="text" name="Nombre" required>
-
-  <label>Apellido</label>
-  <input type="text" name="Apellido" required>
-
-  <label>Correo Electrónico</label>
-  <input type="email" name="Email" required>
-
-  <label>Teléfono</label>
-  <input type="tel" name="Teléfono" required>
-
+<form method="POST" action="book.php">
   <label>Fecha</label>
-  <input type="date" name="Fecha" required>
+  <input type="date" name="fecha" required min="" id="datePicker">
 
   <label>Hora</label>
-  <select name="Hora" required>
+  <select name="hora" required>
     <option value="">Selecciona una hora</option>
     <option>08:00</option>
     <option>09:00</option>
@@ -85,6 +70,12 @@
 
   <button type="submit">Confirmar Reserva</button>
 </form>
+
+<script>
+  // Set min date to today
+  const today = new Date().toISOString().split('T')[0];
+  document.getElementById("datePicker").setAttribute("min", today);
+</script>
 
 </body>
 </html>
