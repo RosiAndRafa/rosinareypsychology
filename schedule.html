@@ -73,16 +73,34 @@
 <p id="response" style="text-align:center; font-weight: bold;"></p>
 
 <script>
-const workerURL = "https://old-firefly-e968.rafaaa006.workers.dev/";
+const workerURL = "https://old-firefly-e968.rafaaa006.workers.dev";
 const hourSelect = document.getElementById("hora");
 const dateInput = document.getElementById("fecha");
 const responseBox = document.getElementById("response");
 
-const allHours = [
-  "08:00", "09:00", "10:00", "11:00", "12:00",
-  "13:00", "14:00", "15:00", "16:00", "17:00",
-  "18:00", "19:00", "20:00"
-];
+// Set min date to today (no past dates)
+const today = new Date().toISOString().split('T')[0];
+dateInput.setAttribute("min", today);
+
+// Convert Uruguay hours to local time
+function getLocalHoursFromUruguayRange() {
+  const uruguayOffset = -3;
+  const localOffset = new Date().getTimezoneOffset() / -60;
+  const diff = localOffset - uruguayOffset;
+
+  const hours = [];
+  for (let hour = 8; hour <= 20; hour++) {
+    let localHour = hour + diff;
+    if (localHour < 0) localHour += 24;
+    if (localHour >= 24) localHour -= 24;
+
+    const hourStr = String(localHour).padStart(2, '0') + ":00";
+    hours.push({ local: hourStr, original: String(hour).padStart(2, '0') + ":00" });
+  }
+  return hours;
+}
+
+const uruguayToLocal = getLocalHoursFromUruguayRange();
 
 dateInput.addEventListener("change", loadAvailableHours);
 
@@ -94,10 +112,13 @@ async function loadAvailableHours() {
   const res = await fetch(workerURL);
   const bookedSlots = await res.json();
 
-  const available = allHours.filter(h => !bookedSlots.includes(`${selectedDate} ${h}`));
+  const available = uruguayToLocal.filter(slot =>
+    !bookedSlots.includes(`${selectedDate} ${slot.original}`)
+  );
+
   hourSelect.innerHTML = available.length ?
     "<option value=''>Selecciona una hora</option>" +
-    available.map(h => `<option value="${h}">${h}</option>`).join('') :
+    available.map(h => `<option value="${h.original}">${h.local}</option>`).join('') :
     "<option value=''>No hay horas disponibles</option>";
 }
 
