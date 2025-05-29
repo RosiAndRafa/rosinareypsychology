@@ -1,136 +1,81 @@
 <!DOCTYPE html>
-
 <html lang="es">
 <head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Rosina Rey Psicología - Inicio</title>
-<meta content="Psicóloga Rosina Rey. Terapia individual, manejo de ansiedad y apoyo emocional en Uruguay. Agenda tu cita." name="description"/>
-<meta content="Psicóloga, Terapia, Salud Mental, Rosina Rey, Psicología Uruguay" name="keywords"/>
-<meta content="Rosina Rey Psicología - Inicio" property="og:title"/>
-<meta content="Terapia individual, manejo de ansiedad y apoyo emocional en Uruguay." property="og:description"/>
-<meta content="images/rosina-rey.jpg" property="og:image"/>
-<meta content="https://rosinareypsychology.com" property="og:url"/>
-<meta content="website" property="og:type"/>
-<meta content="summary_large_image" name="twitter:card"/>
-<meta content="Rosina Rey Psicología" name="twitter:title"/>
-<meta content="Terapia individual, manejo de ansiedad y apoyo emocional en Uruguay." name="twitter:description"/>
-<meta content="images/rosina-rey.jpg" name="twitter:image"/>
-<link href="favicon.ico" rel="icon" type="image/x-icon"/>
-<link href="css/styles.css?v=3" rel="stylesheet"/>
-<script defer="" src="js/lang.js"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Reserva de Cita - Rosina Rey</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f7f7f7;
+      padding: 20px;
+      color: #333;
+    }
+    h1 {
+      text-align: center;
+      color: #4CAF50;
+    }
+    form {
+      max-width: 400px;
+      margin: auto;
+      background: white;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    input, select, button {
+      width: 100%;
+      padding: 10px;
+      margin-top: 10px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      font-size: 16px;
+    }
+    button {
+      background: #4CAF50;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #388E3C;
+    }
+  </style>
 </head>
 <body>
-<div style="position: fixed; top: 10px; right: 10px; z-index: 999;">
-<img alt="Español" id="lang-es" src="images/es.png" style="cursor:pointer; width: 24px; margin-right: 6px;"/>
-<img alt="English" id="lang-en" src="images/us.png" style="cursor:pointer; width: 24px;"/>
-</div>
 
-<nav>
-<div class="nav-center">
-<a data-i18n="home" data-translate="index_key1" href="index.html">Inicio</a>
-<a data-i18n="about" data-translate="index_key2" href="about.html">Sobre mí</a>
-<a data-i18n="contact" data-translate="index_key3" href="contact.html">Contacto</a>
-</div>
-<div class="lang-switcher">
+<h1>Agendar una Cita</h1>
 
+<form method="POST" action="book.php">
+  <label>Fecha</label>
+  <input type="date" name="fecha" required min="" id="datePicker">
 
-</div>
-</nav>
-<div class="hero fade-in">
-<h1 data-i18n="welcome" data-translate="index_key4">Bienvenido/a a tu espacio de terapia online</h1>
-<p data-translate="index_key5">Trabajo desde un enfoque cognitivo-conductual, de forma online, adaptando el proceso terapéutico a tus tiempos y necesidades.</p>
-<blockquote data-translate="index_key24"></blockquote>
-<p data-translate="index_key6">Si estás listo/a para comenzar este proceso de cambio y crecimiento, no dudes en contactarme. Juntos podemos trabajar hacia un bienestar más pleno y una vida más equilibrada.</p>
-<a class="button" data-i18n="book" data-translate="index_key7" href="schedule.html">
-<button class="appointment-button">
-        Agendar una Cita
-    </button>
-</a>
-</div>
-<div class="container fade-in">
-<h2 data-i18n="servicesTitle" data-translate="index_key8">Servicios</h2>
-<ul>
-<li data-translate="index_key19">✓ Terapia Online (Cognitivo-Conductual)</li>
-<li data-translate="index_key20">✓ Atención a Pacientes con Adicciones</li>
-<li data-translate="index_key21">✓ Terapia para Padres con Hijos Adictos</li>
-<li data-translate="index_key22">✓ Talleres de Estimulación Cognitiva para adultos</li>
-<li data-translate="index_key23">✓Orientación Vocacional y Profesional</li>
-<div class="contact-info">
-  <p>Rosina Rey</p>
-  <p>
-    <a href="mailto:Rosina.rey.asis@gmail.com">Rosina.rey.asis@gmail.com</a>
-  </p>
-  <p>
-    <a href="https://wa.me/59898203870" target="_blank">+598 9820 3870</a>
-  </p>
-</div>
-</div>
-<a class="whatsapp-button" href="https://wa.me/59898203870" target="_blank">
-<img alt="WhatsApp" src="images/whatsapp.png" style="height: 32px; margin: 0 6px;"/>
-</a>
-<footer class="site-footer">
-<div class="footer-content">
-<div style="text-align: center; margin-top: 12px;">
-<a href="https://www.tiktok.com/@rosinareyasis?_t=ZN-8w4TeZscWYA&amp;_r=1" target="_blank">
-<img alt="TikTok" src="images/tiktok.png" style="width:48px; height:48px; margin: 0 8px;"/>
-</a>
-<a href="https://www.instagram.com/psicologarosinarey/?igsh=cXh6MjMzajlibmRk#" target="_blank">
-<img alt="Instagram" src="images/instagram.png" style="width:48px; height:48px; margin: 0 8px;"/>
-</a>
-</div>
-<div class="footer-links">
-<a data-i18n="privacy" data-translate="index_key14" href="#">Privacidad</a>
-<a data-i18n="terms" data-translate="index_key15" href="#">Términos</a>
-<a data-i18n="accessibility" data-translate="index_key16" href="#">Accesibilidad</a>
-<a data-i18n="donotsell" data-translate="index_key17" href="#">No vender ni compartir mi información</a>
-</div>
-<div class="footer-social">
-</div>
-<p>© 2025 Rosina Rey Psicología. <span data-i18n="rights" data-translate="index_key18">Todos los derechos reservados.</span></p>
-</div>
-</footer>
+  <label>Hora</label>
+  <select name="hora" required>
+    <option value="">Selecciona una hora</option>
+    <option>08:00</option>
+    <option>09:00</option>
+    <option>10:00</option>
+    <option>11:00</option>
+    <option>12:00</option>
+    <option>13:00</option>
+    <option>14:00</option>
+    <option>15:00</option>
+    <option>16:00</option>
+    <option>17:00</option>
+    <option>18:00</option>
+    <option>19:00</option>
+    <option>20:00</option>
+  </select>
+
+  <button type="submit">Confirmar Reserva</button>
+</form>
+
+<script>
+  // Set min date to today
+  const today = new Date().toISOString().split('T')[0];
+  document.getElementById("datePicker").setAttribute("min", today);
+</script>
+
 </body>
 </html>
-<!-- Google Review Button Section -->
-<div class="google-review-section">
-    <h2 data-translate="review_heading">Comparte tu experiencia</h2>
-    <p data-translate="review_text">¡Aprecio tus comentarios! Por favor, deja una reseña en Google.</p>
-
-    <a href="https://search.google.com/local/writereview?placeid=ChIJJ87wnayJn5URF-Kbrr3q2k8" target="_blank">
-        <button class="google-review-button" data-translate="review_button">
-            ⭐ Dejar una reseña en Google
-        </button>
-    </a>
-</div>
-
-<!-- Styles for the Review Button -->
-<style>
-    .google-review-section {
-        text-align: center;
-        margin-top: 30px;
-        margin-bottom: 50px;
-    }
-
-    .google-review-button {
-        background-color: #4285F4;
-        color: white;
-        border: none;
-        padding: 12px 25px;
-        text-align: center;
-        font-size: 18px;
-        border-radius: 8px;
-        cursor: pointer;
-        transition: background-color 0.3s ease;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    }
-
-    .google-review-button:hover {
-        background-color: #357ae8;
-    }
-
-    .google-review-button:active {
-        background-color: #2a65c8;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-    }
-</style>
