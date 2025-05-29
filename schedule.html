@@ -153,7 +153,8 @@ document.getElementById("bookingForm").addEventListener("submit", async function
   const data = await res.json();
 
   if (res.ok && data.success) {
-    responseBox.textContent = "✅ Reserva confirmada para " + fecha + " a las " + hora;
+    responseBox.textContent = "✅ Gracias, tu cita para " + fecha + " a las " + hora + " ha sido confirmada.";
+    document.getElementById("bookingForm").style.display = "none";
     loadAvailableHours();
   } else {
     responseBox.textContent = "⛔ Esa hora ya está reservada. Intenta otra.";
