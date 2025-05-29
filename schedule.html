@@ -47,6 +47,18 @@
 <h1>Agendar una Cita</h1>
 
 <form id="bookingForm">
+  <label>Nombre</label>
+  <input type="text" name="nombre" id="nombre" required>
+
+  <label>Apellido</label>
+  <input type="text" name="apellido" id="apellido" required>
+
+  <label>Correo Electrónico</label>
+  <input type="email" name="email" id="email" required>
+
+  <label>Teléfono</label>
+  <input type="tel" name="telefono" id="telefono" required>
+
   <label>Fecha</label>
   <input type="date" name="fecha" required id="fecha">
 
@@ -91,8 +103,13 @@ async function loadAvailableHours() {
 
 document.getElementById("bookingForm").addEventListener("submit", async function(e) {
   e.preventDefault();
+
   const fecha = dateInput.value;
   const hora = hourSelect.value;
+  const nombre = document.getElementById("nombre").value;
+  const apellido = document.getElementById("apellido").value;
+  const email = document.getElementById("email").value;
+  const telefono = document.getElementById("telefono").value;
 
   if (!fecha || !hora) {
     responseBox.textContent = "Por favor selecciona una fecha y hora.";
@@ -102,14 +119,21 @@ document.getElementById("bookingForm").addEventListener("submit", async function
   const res = await fetch(workerURL, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ date: fecha, time: hora })
+    body: JSON.stringify({
+      date: fecha,
+      time: hora,
+      nombre,
+      apellido,
+      email,
+      telefono
+    })
   });
 
   const data = await res.json();
 
   if (res.ok && data.success) {
     responseBox.textContent = "✅ Reserva confirmada para " + fecha + " a las " + hora;
-    loadAvailableHours(); // refresh availability
+    loadAvailableHours();
   } else {
     responseBox.textContent = "⛔ Esa hora ya está reservada. Intenta otra.";
   }
