@@ -46,47 +46,74 @@
 
 <h1>Agendar una Cita</h1>
 
-<form method="POST" action="book.php">
-  <label>Nombre</label>
-  <input type="text" name="nombre" required>
-
-  <label>Apellido</label>
-  <input type="text" name="apellido" required>
-
-  <label>Correo Electrónico</label>
-  <input type="email" name="email" required>
-
-  <label>Teléfono</label>
-  <input type="tel" name="telefono" required>
-
+<form id="bookingForm">
   <label>Fecha</label>
-  <input type="date" name="fecha" required min="" id="datePicker">
+  <input type="date" name="fecha" required id="fecha">
 
   <label>Hora</label>
-  <select name="hora" required>
-    <option value="">Selecciona una hora</option>
-    <option>08:00</option>
-    <option>09:00</option>
-    <option>10:00</option>
-    <option>11:00</option>
-    <option>12:00</option>
-    <option>13:00</option>
-    <option>14:00</option>
-    <option>15:00</option>
-    <option>16:00</option>
-    <option>17:00</option>
-    <option>18:00</option>
-    <option>19:00</option>
-    <option>20:00</option>
+  <select name="hora" required id="hora">
+    <option value="">Cargando horas disponibles...</option>
   </select>
 
   <button type="submit">Confirmar Reserva</button>
 </form>
 
+<p id="response" style="text-align:center; font-weight: bold;"></p>
+
 <script>
-  // Set min date to today
-  const today = new Date().toISOString().split('T')[0];
-  document.getElementById("datePicker").setAttribute("min", today);
+const workerURL = "https://old-firefly-e968.rafaaa006.workers.dev/";
+const hourSelect = document.getElementById("hora");
+const dateInput = document.getElementById("fecha");
+const responseBox = document.getElementById("response");
+
+const allHours = [
+  "08:00", "09:00", "10:00", "11:00", "12:00",
+  "13:00", "14:00", "15:00", "16:00", "17:00",
+  "18:00", "19:00", "20:00"
+];
+
+dateInput.addEventListener("change", loadAvailableHours);
+
+async function loadAvailableHours() {
+  const selectedDate = dateInput.value;
+  if (!selectedDate) return;
+
+  hourSelect.innerHTML = "<option>Cargando...</option>";
+  const res = await fetch(workerURL);
+  const bookedSlots = await res.json();
+
+  const available = allHours.filter(h => !bookedSlots.includes(`${selectedDate} ${h}`));
+  hourSelect.innerHTML = available.length ?
+    "<option value=''>Selecciona una hora</option>" +
+    available.map(h => `<option value="${h}">${h}</option>`).join('') :
+    "<option value=''>No hay horas disponibles</option>";
+}
+
+document.getElementById("bookingForm").addEventListener("submit", async function(e) {
+  e.preventDefault();
+  const fecha = dateInput.value;
+  const hora = hourSelect.value;
+
+  if (!fecha || !hora) {
+    responseBox.textContent = "Por favor selecciona una fecha y hora.";
+    return;
+  }
+
+  const res = await fetch(workerURL, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ date: fecha, time: hora })
+  });
+
+  const data = await res.json();
+
+  if (res.ok && data.success) {
+    responseBox.textContent = "✅ Reserva confirmada para " + fecha + " a las " + hora;
+    loadAvailableHours(); // refresh availability
+  } else {
+    responseBox.textContent = "⛔ Esa hora ya está reservada. Intenta otra.";
+  }
+});
 </script>
 
 </body>
