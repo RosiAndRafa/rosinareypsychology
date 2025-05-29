@@ -66,7 +66,7 @@
   <label>Fecha</label>
   <input type="date" name="Fecha" required id="fecha">
 
-  <label>Hora (en tu horario local)</label>
+  <label>Hora (convertida a tu horario local)</label>
   <select name="Hora" required id="hora">
     <option value="">Cargando horas disponibles...</option>
   </select>
@@ -93,17 +93,23 @@ now.setHours(0, 0, 0, 0);
 const minDate = now.toISOString().split('T')[0];
 dateInput.setAttribute("min", minDate);
 
-// Convert UTC-3 to local time and return display + internal values
-function getConvertedHours() {
-  const diff = new Date().getTimezoneOffset() / 60 + 3;
-  return uruguayHours.map(uh => {
-    const [h, m] = uh.split(":");
-    let localHour = parseInt(h) + diff;
+// Convert Uruguay time (UTC−3) to user's local time
+function convertToLocalTimes() {
+  const converted = [];
+  const uruguayOffset = -3;
+  const localOffset = -new Date().getTimezoneOffset() / 60;
+  const diff = localOffset - uruguayOffset;
+
+  uruguayHours.forEach(uh => {
+    let [hour, minute] = uh.split(":");
+    let localHour = parseInt(hour) + diff;
     if (localHour < 0) localHour += 24;
     if (localHour >= 24) localHour -= 24;
-    const lh = Math.floor(localHour).toString().padStart(2, '0');
-    return { original: uh, local: `${lh}:00` };
+    const localTime = localHour.toString().padStart(2, '0') + ":00";
+    converted.push({ original: uh, local: localTime });
   });
+
+  return converted;
 }
 
 dateInput.addEventListener("change", loadAvailableHours);
@@ -116,8 +122,8 @@ async function loadAvailableHours() {
   const res = await fetch(workerURL);
   const bookedSlots = await res.json();
 
-  const hours = getConvertedHours();
-  const available = hours.filter(slot =>
+  const converted = convertToLocalTimes();
+  const available = converted.filter(slot =>
     !bookedSlots.includes(`${selectedDate} ${slot.original}`)
   );
 
