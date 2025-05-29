@@ -123,33 +123,39 @@
 
 <!-- JavaScript Logic (Self-Contained) -->
 <script>
-    window.addEventListener('DOMContentLoaded', (event) => {
-        const uruguayOffset = -3;
-        const localOffset = new Date().getTimezoneOffset() / 60;
+    document.addEventListener('DOMContentLoaded', function () {
+        const uruguayOffset = -3; // Uruguay is UTC-3
+        const localOffset = new Date().getTimezoneOffset() / 60; // User's local timezone offset (in hours)
         let selectedDate = null;
         let selectedTime = null;
 
-        // ✅ Initialize Flatpickr calendar
+        // Initialize Flatpickr with Monday to Friday only
         flatpickr("#calendar", {
             locale: "es",
-            minDate: "today",
             dateFormat: "Y-m-d",
-            onChange: function(selectedDates, dateStr) {
+            minDate: "today",
+            disable: [
+                function (date) {
+                    // Disable weekends (Saturday=6, Sunday=0)
+                    return (date.getDay() === 6 || date.getDay() === 0);
+                }
+            ],
+            onChange: function (selectedDates, dateStr) {
                 selectedDate = dateStr;
                 renderTimeSlots(dateStr);
             }
         });
 
-        // ✅ Render available time slots
         function renderTimeSlots(date) {
-            const timeSlotsContainer = document.getElementById("time-slots");
-            timeSlotsContainer.innerHTML = "";
+            const container = document.getElementById("time-slots");
+            container.innerHTML = "";
 
             const fragment = document.createDocumentFragment();
 
             for (let hour = 8; hour <= 20; hour++) {
                 const localHour = hour + (localOffset - uruguayOffset);
-                const timeString = `${date} ${localHour.toString().padStart(2, '0')}:00`;
+                const timeString = `${date} ${hour.toString().padStart(2, '0')}:00`;
+
                 const button = document.createElement("button");
                 button.textContent = `${localHour.toString().padStart(2, '0')}:00`;
                 button.classList.add("time-slot");
@@ -164,13 +170,14 @@
                 fragment.appendChild(button);
             }
 
-            timeSlotsContainer.appendChild(fragment);
+            container.appendChild(fragment);
         }
 
-        // ✅ Hide form initially
+        // Hide the form until a time is selected
         document.getElementById("form-container").style.display = "none";
     });
 </script>
+
 
 </body>
 </html>
