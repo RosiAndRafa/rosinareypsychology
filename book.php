@@ -13,16 +13,22 @@ if (in_array($slot, $booked)) {
     exit;
 }
 
-// Save booking
+// Save booking (only slot)
 file_put_contents($booked_file, $slot . PHP_EOL, FILE_APPEND);
+
+// Gather user info
+$nombre = $_POST['nombre'];
+$apellido = $_POST['apellido'];
+$email = $_POST['email'];
+$telefono = $_POST['telefono'];
 
 // Send email
 $to = "rosinareyasis@gmail.com";
 $subject = "Nueva reserva: $slot";
-$message = "Nueva cita agendada para: $slot";
+$message = "Nueva cita agendada para: $slot\n\nNombre: $nombre $apellido\nEmail: $email\nTeléfono: $telefono";
 $headers = "From: no-reply@rosinarey.com";
 
 mail($to, $subject, $message, $headers);
 
-echo "✅ Reserva confirmada para: $slot";
+echo "✅ Reserva confirmada para: $slot. ¡Gracias $nombre!";
 ?>

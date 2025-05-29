@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Reserva de Cita - Rosina Rey</title>
+  <title>Agendar una Cita - Rosina Rey</title>
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -47,6 +47,18 @@
 <h1>Agendar una Cita</h1>
 
 <form method="POST" action="book.php">
+  <label>Nombre</label>
+  <input type="text" name="nombre" required>
+
+  <label>Apellido</label>
+  <input type="text" name="apellido" required>
+
+  <label>Correo Electrónico</label>
+  <input type="email" name="email" required>
+
+  <label>Teléfono</label>
+  <input type="tel" name="telefono" required>
+
   <label>Fecha</label>
   <input type="date" name="fecha" required min="" id="datePicker">
 
