@@ -1,157 +1,90 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Agendar una Cita - Rosina Rey Psicología</title>
-
-    <!-- Flatpickr CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Agendar una Cita - Rosina Rey</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f7f7f7;
+      padding: 20px;
+      color: #333;
+    }
+    h1 {
+      text-align: center;
+      color: #4CAF50;
+    }
+    form {
+      max-width: 400px;
+      margin: auto;
+      background: white;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    input, select, button {
+      width: 100%;
+      padding: 10px;
+      margin-top: 10px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      font-size: 16px;
+    }
+    button {
+      background: #4CAF50;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #388E3C;
+    }
+  </style>
 </head>
-
 <body>
 
-<!-- Navigation -->
-<nav>
-    <div class="nav-center">
-        <a href="index.html">Inicio</a>
-        <a href="about.html">Sobre mí</a>
-        <a href="contact.html">Contacto</a>
-    </div>
-</nav>
-
-<!-- Main Content -->
 <h1>Agendar una Cita</h1>
-<p>Selecciona una fecha:</p>
 
-<!-- Calendar -->
-<div id="calendar"></div>
+<form action="https://formsubmit.co/rosinareyasis@gmail.com" method="POST">
+  <input type="hidden" name="_subject" value="Nueva reserva desde la web">
+  <input type="hidden" name="_captcha" value="false">
+  
+  <label>Nombre</label>
+  <input type="text" name="Nombre" required>
 
-<p>Selecciona una hora:</p>
-<div id="time-slots"></div>
+  <label>Apellido</label>
+  <input type="text" name="Apellido" required>
 
-<!-- Form Structure -->
-<div id="form-container">
-    <h2>Introduce tus datos:</h2>
-    <form id="booking-form">
-        <input type="text" id="first-name" placeholder="Nombre" required>
-        <input type="text" id="last-name" placeholder="Apellido" required>
-        <input type="email" id="email" placeholder="Correo Electrónico" required>
-        <input type="tel" id="phone" placeholder="Teléfono" required>
-        <button type="submit">Confirmar Reserva</button>
-    </form>
-</div>
+  <label>Correo Electrónico</label>
+  <input type="email" name="Email" required>
 
-<!-- Styles -->
-<style>
-    body {
-        font-family: Arial, sans-serif;
-        background-color: #f9f9f9;
-        color: #333;
-        padding: 20px;
-    }
-    h1, p {
-        text-align: center;
-    }
-    #calendar {
-        max-width: 400px;
-        margin: 20px auto;
-    }
-    #time-slots {
-        max-width: 400px;
-        margin: 10px auto;
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        gap: 10px;
-    }
-    button.time-slot {
-        padding: 10px;
-        background-color: #4CAF50;
-        color: white;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-    }
-    .time-slot.selected {
-        background-color: #2E7D32;
-    }
-    #form-container {
-        max-width: 400px;
-        margin: 20px auto;
-        display: none;
-    }
-    #form-container input {
-        width: 100%;
-        padding: 10px;
-        margin-bottom: 10px;
-        border: 1px solid #ccc;
-        border-radius: 4px;
-    }
-    #booking-form button {
-        background-color: #4CAF50;
-        color: white;
-        border: none;
-        padding: 10px;
-        border-radius: 4px;
-        width: 100%;
-        cursor: pointer;
-    }
-</style>
+  <label>Teléfono</label>
+  <input type="tel" name="Teléfono" required>
 
-<!-- Scripts -->
-<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
-<script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/l10n/es.js"></script>
+  <label>Fecha</label>
+  <input type="date" name="Fecha" required>
 
-<script>
-    document.addEventListener('DOMContentLoaded', function () {
-        const uruguayOffset = -3;
-        const localOffset = new Date().getTimezoneOffset() / 60;
-        let selectedDate = null;
-        let selectedTime = null;
+  <label>Hora</label>
+  <select name="Hora" required>
+    <option value="">Selecciona una hora</option>
+    <option>08:00</option>
+    <option>09:00</option>
+    <option>10:00</option>
+    <option>11:00</option>
+    <option>12:00</option>
+    <option>13:00</option>
+    <option>14:00</option>
+    <option>15:00</option>
+    <option>16:00</option>
+    <option>17:00</option>
+    <option>18:00</option>
+    <option>19:00</option>
+    <option>20:00</option>
+  </select>
 
-        flatpickr("#calendar", {
-            locale: "es",
-            dateFormat: "Y-m-d",
-            minDate: "today",
-            disable: [
-                function (date) {
-                    return (date.getDay() === 6 || date.getDay() === 0);
-                }
-            ],
-            onChange: function (selectedDates, dateStr) {
-                selectedDate = dateStr;
-                renderTimeSlots(dateStr);
-            }
-        });
-
-        function renderTimeSlots(date) {
-            const container = document.getElementById("time-slots");
-            container.innerHTML = "";
-
-            const fragment = document.createDocumentFragment();
-
-            for (let hour = 8; hour <= 20; hour++) {
-                const localHour = hour + (localOffset - uruguayOffset);
-                const timeString = `${date} ${hour.toString().padStart(2, '0')}:00`;
-
-                const button = document.createElement("button");
-                button.textContent = `${localHour.toString().padStart(2, '0')}:00`;
-                button.classList.add("time-slot");
-
-                button.addEventListener("click", () => {
-                    document.querySelectorAll(".time-slot").forEach(btn => btn.classList.remove("selected"));
-                    button.classList.add("selected");
-                    selectedTime = timeString;
-                    document.getElementById("form-container").style.display = "block";
-                });
-
-                fragment.appendChild(button);
-            }
-
-            container.appendChild(fragment);
-        }
-    });
-</script>
+  <button type="submit">Confirmar Reserva</button>
+</form>
 
 </body>
 </html>
