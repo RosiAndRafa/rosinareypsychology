@@ -5,19 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Agendar una Cita - Rosina Rey Psicología</title>
 
-    <!-- ✅ Flatpickr CSS and JS - Loaded from CDN -->
+    <!-- Flatpickr CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
-    <script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/l10n/es.js"></script>
 </head>
 
 <body>
-
-<!-- Language Switcher -->
-<div style="position: fixed; top: 10px; right: 10px; z-index: 999;">
-    <img alt="Español" id="lang-es" src="images/es.png" style="cursor:pointer; width: 24px; margin-right: 6px;">
-    <img alt="English" id="lang-en" src="images/us.png" style="cursor:pointer; width: 24px;">
-</div>
 
 <!-- Navigation -->
 <nav>
@@ -32,7 +24,7 @@
 <h1>Agendar una Cita</h1>
 <p>Selecciona una fecha:</p>
 
-<!-- Calendar Booking -->
+<!-- Calendar -->
 <div id="calendar"></div>
 
 <p>Selecciona una hora:</p>
@@ -49,19 +41,16 @@
         <button type="submit">Confirmar Reserva</button>
     </form>
 </div>
-<!-- Styles (Self-Contained) -->
+
+<!-- Styles -->
 <style>
     body {
         font-family: Arial, sans-serif;
         background-color: #f9f9f9;
         color: #333;
+        padding: 20px;
     }
-    h1 {
-        text-align: center;
-        margin-top: 30px;
-        color: #4CAF50;
-    }
-    p {
+    h1, p {
         text-align: center;
     }
     #calendar {
@@ -82,61 +71,50 @@
         border: none;
         border-radius: 5px;
         cursor: pointer;
-        margin-bottom: 5px;
     }
-    button.time-slot.disabled {
-        background-color: #ccc;
-        cursor: not-allowed;
-    }
-    #confirm-button {
-        display: block;
-        margin: 20px auto;
-        padding: 10px 20px;
-        background-color: #4CAF50;
-        color: white;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-        font-size: 16px;
+    .time-slot.selected {
+        background-color: #2E7D32;
     }
     #form-container {
         max-width: 400px;
         margin: 20px auto;
+        display: none;
     }
     #form-container input {
         width: 100%;
         padding: 10px;
         margin-bottom: 10px;
-        border-radius: 5px;
         border: 1px solid #ccc;
+        border-radius: 4px;
     }
-    #form-container button {
+    #booking-form button {
         background-color: #4CAF50;
         color: white;
         border: none;
         padding: 10px;
+        border-radius: 4px;
         width: 100%;
-        border-radius: 5px;
         cursor: pointer;
     }
 </style>
 
-<!-- JavaScript Logic (Self-Contained) -->
+<!-- Scripts -->
+<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+<script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/l10n/es.js"></script>
+
 <script>
     document.addEventListener('DOMContentLoaded', function () {
-        const uruguayOffset = -3; // Uruguay is UTC-3
-        const localOffset = new Date().getTimezoneOffset() / 60; // User's local timezone offset (in hours)
+        const uruguayOffset = -3;
+        const localOffset = new Date().getTimezoneOffset() / 60;
         let selectedDate = null;
         let selectedTime = null;
 
-        // Initialize Flatpickr with Monday to Friday only
         flatpickr("#calendar", {
             locale: "es",
             dateFormat: "Y-m-d",
             minDate: "today",
             disable: [
                 function (date) {
-                    // Disable weekends (Saturday=6, Sunday=0)
                     return (date.getDay() === 6 || date.getDay() === 0);
                 }
             ],
@@ -172,12 +150,8 @@
 
             container.appendChild(fragment);
         }
-
-        // Hide the form until a time is selected
-        document.getElementById("form-container").style.display = "none";
     });
 </script>
-
 
 </body>
 </html>
