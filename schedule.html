@@ -84,29 +84,31 @@ const hiddenOriginalHour = document.getElementById("Hora_Original");
 const responseBox = document.getElementById("response");
 
 const uruguayHours = [];
-for (let h = 8; h <= 20; h++) {{
+for (let h = 8; h <= 20; h++) {
   uruguayHours.push(h.toString().padStart(2, '0') + ":00");
-}}
+}
 
-const today = new Date().toISOString().split('T')[0];
-dateInput.setAttribute("min", today);
+const now = new Date();
+now.setHours(0, 0, 0, 0);
+const minDate = now.toISOString().split('T')[0];
+dateInput.setAttribute("min", minDate);
 
 // Convert UTC-3 to local time and return display + internal values
-function getConvertedHours() {{
+function getConvertedHours() {
   const diff = new Date().getTimezoneOffset() / 60 + 3;
-  return uruguayHours.map(uh => {{
+  return uruguayHours.map(uh => {
     const [h, m] = uh.split(":");
     let localHour = parseInt(h) + diff;
     if (localHour < 0) localHour += 24;
     if (localHour >= 24) localHour -= 24;
     const lh = Math.floor(localHour).toString().padStart(2, '0');
-    return {{ original: uh, local: `${{lh}}:00` }};
-  }});
-}}
+    return { original: uh, local: `${lh}:00` };
+  });
+}
 
 dateInput.addEventListener("change", loadAvailableHours);
 
-async function loadAvailableHours() {{
+async function loadAvailableHours() {
   const selectedDate = dateInput.value;
   if (!selectedDate) return;
 
@@ -116,16 +118,16 @@ async function loadAvailableHours() {{
 
   const hours = getConvertedHours();
   const available = hours.filter(slot =>
-    !bookedSlots.includes(`${{selectedDate}} ${{slot.original}}`)
+    !bookedSlots.includes(`${selectedDate} ${slot.original}`)
   );
 
   hourSelect.innerHTML = available.length
     ? "<option value=''>Selecciona una hora</option>" +
-      available.map(h => `<option value="${{h.local}}" data-original="${{h.original}}">${{h.local}}</option>`).join('')
+      available.map(h => `<option value="${h.local}" data-original="${h.original}">${h.local}</option>`).join('')
     : "<option value=''>No hay horas disponibles</option>";
-}}
+}
 
-document.getElementById("bookingForm").addEventListener("submit", async function(e) {{
+document.getElementById("bookingForm").addEventListener("submit", async function(e) {
   e.preventDefault();
 
   const fecha = dateInput.value;
@@ -137,27 +139,27 @@ document.getElementById("bookingForm").addEventListener("submit", async function
   const email = document.getElementById("email").value;
   const telefono = document.getElementById("telefono").value;
 
-  if (!fecha || !horaOriginal) {{
+  if (!fecha || !horaOriginal) {
     responseBox.textContent = "Por favor selecciona una fecha y hora.";
     return;
-  }}
+  }
 
-  const res = await fetch(workerURL, {{
+  const res = await fetch(workerURL, {
     method: "POST",
-    headers: {{ "Content-Type": "application/json" }},
-    body: JSON.stringify({{ date: fecha, time: horaOriginal }})
-  }});
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ date: fecha, time: horaOriginal })
+  });
 
   const data = await res.json();
 
-  if (res.ok && data.success) {{
+  if (res.ok && data.success) {
     hiddenOriginalHour.value = horaOriginal;
     responseBox.textContent = "✅ Gracias, tu cita fue reservada.";
     this.submit(); // Send to FormSubmit
-  }} else {{
+  } else {
     responseBox.textContent = "⛔ Esa hora ya está reservada. Intenta otra.";
-  }}
-}});
+  }
+});
 </script>
 
 </body>
